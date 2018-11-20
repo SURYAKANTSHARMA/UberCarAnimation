@@ -1,5 +1,5 @@
 # UberAnimation
-This app is for animating the car like uber from one position to another with perserving angle and smooth animation
+This app is for animating the car like uber from one position to another with preserving angle and smooth animation
 
 # Usage 
 
