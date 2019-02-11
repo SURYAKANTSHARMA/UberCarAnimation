@@ -13,6 +13,7 @@
 		9A3E6B3121A2BF0700DC2839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B2F21A2BF0700DC2839 /* Main.storyboard */; };
 		9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */; };
 		9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */; };
+		9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */; };
 		A4FA8FB05A072E8EFC505F40 /* Pods_UberAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607DC8A74E5CE5C4F507E02B /* Pods_UberAnimation.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A3E6B3521A2BF0900DC2839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A3E6B3721A2BF0900DC2839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mapstogpx20190207_115833.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		9A3E6B2A21A2BF0700DC2839 /* UberAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */,
 				9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */,
 				9A3E6B2D21A2BF0700DC2839 /* ViewController.swift */,
 				9A32E78021A40A9C00D9D510 /* LocationTracker.swift */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */,
+				9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */,
 				9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */,
 				9A3E6B3121A2BF0700DC2839 /* Main.storyboard in Resources */,
 			);

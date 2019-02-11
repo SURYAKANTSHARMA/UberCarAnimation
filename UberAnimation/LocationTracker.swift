@@ -78,7 +78,7 @@ class LocationTracker: NSObject {
        locationManager.delegate = self
     }
     
-    func locateMe(callback: @escaping LocateMeCallback) {
+    func locateMeOnLocationChange(callback: @escaping LocateMeCallback) {
         self.locateMeCallback = callback
         if lastLocation == nil {
             enableLocationServices()
@@ -114,10 +114,9 @@ extension LocationTracker: CLLocationManagerDelegate {
         previousLocation = lastLocation
         lastLocation = location
         
-        print(LocationTracker.shared.lastLocation)
         print("location = \(location.coordinate.latitude) \(location.coordinate.longitude)")
         locateMeCallback?(location)
-        locateMeCallback = nil 
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

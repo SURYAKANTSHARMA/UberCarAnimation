@@ -11,22 +11,16 @@ import GoogleMaps
 import CoreLocation
 
 
-typealias JSON = [String: Double]
-typealias JSONArray = [JSON]
-
 class ViewController: UIViewController {
     
+    // MARK :- Variable
     var myLocationMarker: GMSMarker!
-    
     @IBOutlet weak var mapView: GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        mapView.isMyLocationEnabled = true
-
-        LocationTracker.shared.locateMe { [weak self]  _  in
-            LocationTracker.shared.startTracking()
+        mapView.drawPath(GMSMapView.pathString, adjustToFit: true)
+        LocationTracker.shared.locateMeOnLocationChange { [weak self]  _  in
             self?.moveCar()
         }
         
@@ -34,17 +28,15 @@ class ViewController: UIViewController {
 
     
     func moveCar() {
-        if let myLocation = LocationTracker.shared.lastLocation, myLocationMarker == nil {
+        if let myLocation = LocationTracker.shared.lastLocation,
+            myLocationMarker == nil {
             myLocationMarker = GMSMarker(position: myLocation.coordinate)
             myLocationMarker.icon = UIImage(named: "car")
             myLocationMarker.map = self.mapView
             self.mapView.updateMap(toLocation: myLocation, zoomLevel: 16)
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 1 , repeats: true) { _  in
-            if let myLocation = LocationTracker.shared.lastLocation {
-                self.updateMarker(marker: self.myLocationMarker, coordinates: myLocation.coordinate, degrees: LocationTracker.shared.previousLocation?.coordinate.bearing(to: myLocation.coordinate) ?? 0.0, duration: 1.0)
-            }
+        } else if let myLocation = LocationTracker.shared.lastLocation, let myLastLocation = LocationTracker.shared.previousLocation {
+           let degrees = myLastLocation.coordinate.bearing(to: myLocation.coordinate)
+           updateMarker(marker: myLocationMarker, coordinates: myLocation.coordinate, degrees: degrees, duration: 0.3)
         }
     }
     
@@ -103,3 +95,30 @@ extension GMSMapView {
         }
     }
 }
+
+extension GMSMapView {
+    static let kPadding: CGFloat = 115
+    /*
+      Static path String for demoing purpose
+     */
+    static let pathString: String = "_gfzDaiksMnGeF\\WaCmDyAyBRQJPxHlLdD~EjRrYzJvOzBlDd@K|F}DLGTAX?tHkFJIJX~HdRbKvVBHzBqAnAw@|GcEpDaClApCrBoAhHqEtAw@fC`Gx@`B|@xB^v@B@FAjA}@tNfMdGnFVPNBRG~AwAd@MfK}AJCH^RnAHZN?|Ag@"
+    func drawPath(_ encodedPathString: String, adjustToFit: Bool) {
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.0)
+        let path = GMSPath(fromEncodedPath: encodedPathString)
+        
+//        //adjust map to view all markers
+//        if adjustToFit {
+//            let bounds = GMSCoordinateBounds(path: path ?? GMSPath())
+//            animate(with: GMSCameraUpdate.fit(bounds, withPadding: GMSMapView.kPadding))
+//        }
+        let line = GMSPolyline(path: path)
+        line.strokeWidth = 4.0
+        line.strokeColor = UIColor.black
+        line.isTappable = true
+        line.map = self
+        CATransaction.commit()
+    }
+    
+}
+
