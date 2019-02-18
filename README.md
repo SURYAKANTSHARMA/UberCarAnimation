@@ -11,7 +11,7 @@ Once you have your app running in the simulator, select simulate location in xco
 You will see nice moving car with uber like animation like below
 
 <p align="center">
-<img src= "https://user-images.githubusercontent.com/6416095/52565092-db589d80-2e2b-11e9-80ef-92812b49da5e.gif" width="400" height = "865" >
+<img src= "https://user-images.githubusercontent.com/6416095/52931260-c6bb5e80-3371-11e9-9d46-83f7d1389d18.gif" width="400" height = "865" >
 </p>
 
 
