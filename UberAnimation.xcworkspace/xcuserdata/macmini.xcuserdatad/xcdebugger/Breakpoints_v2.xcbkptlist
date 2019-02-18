@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UberAnimation/LocationTracker.swift"
-            timestampString = "571579591.683356"
+            filePath = "UberAnimation/ViewController.swift"
+            timestampString = "572160936.689483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "bearing(to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

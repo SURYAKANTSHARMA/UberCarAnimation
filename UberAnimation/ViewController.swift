@@ -24,6 +24,7 @@ class ViewController: UIViewController {
             self?.moveCar()
         }
         
+        
     }
 
     
@@ -43,13 +44,14 @@ class ViewController: UIViewController {
     func updateMarker(marker: GMSMarker, coordinates: CLLocationCoordinate2D, degrees: CLLocationDegrees, duration: Double) {
         // Keep Rotation Short
         CATransaction.begin()
-        CATransaction.setAnimationDuration(0.5)
+        CATransaction.setAnimationDuration(1)
         marker.rotation = degrees
+        marker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
         CATransaction.commit()
         
         // Movement
         CATransaction.begin()
-        CATransaction.setAnimationDuration(duration)
+        CATransaction.setAnimationDuration(1)
         marker.position = coordinates
         
         // Center Map View
@@ -79,10 +81,10 @@ extension CLLocationCoordinate2D {
         let y = sin(dLon) * cos(lat2);
         let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
         let radiansBearing = atan2(y, x);
-        
-        return radiansToDegrees(radiansBearing)
+        let degree = radiansToDegrees(radiansBearing)
+        return (degree >= 0) ? degree : (360 + degree)
     }
-    
+
 }
 
 extension GMSMapView {
