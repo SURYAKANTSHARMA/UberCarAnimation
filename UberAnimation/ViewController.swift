@@ -103,7 +103,7 @@ extension GMSMapView {
     /*
       Static path String for demoing purpose
      */
-    static let pathString: String = "_gfzDaiksMnGeF\\WaCmDyAyBRQJPxHlLdD~EjRrYzJvOzBlDd@K|F}DLGTAX?tHkFJIJX~HdRbKvVBHzBqAnAw@|GcEpDaClApCrBoAhHqEtAw@fC`Gx@`B|@xB^v@B@FAjA}@tNfMdGnFVPNBRG~AwAd@MfK}AJCH^RnAHZN?|Ag@"
+    static let pathString: String = "ADD YOUR GOOGLE API KEY HERE"
     func drawPath(_ encodedPathString: String, adjustToFit: Bool) {
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.0)
