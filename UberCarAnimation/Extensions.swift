@@ -12,7 +12,7 @@ extension GMSMapView {
     
     static let kPadding: CGFloat = 115
     /*
-     Static path String for demoing purpose you will get actual path by distance matrix api for google for more https://console.cloud.google.com/apis/library/directions-backend.googleapis.com?filter=category:maps&id=c6b51d83-d721-458f-a259-fae6b0af35c5&project=ios-task
+     Static path String for demoing purpose you will get actual path by direction  api for google for more https://console.cloud.google.com/apis/library/directions-backend.googleapis.com?filter=category:maps&id=c6b51d83-d721-458f-a259-fae6b0af35c5&project=ios-task
      */
     static let pathString: String = "_gfzDaiksMnGeF\\WaCmDyAyBRQJPxHlLdD~EjRrYzJvOzBlDd@K|F}DLGTAX?tHkFJIJX~HdRbKvVBHzBqAnAw@|GcEpDaClApCrBoAhHqEtAw@fC`Gx@`B|@xB^v@B@FAjA}@tNfMdGnFVPNBRG~AwAd@MfK}AJCH^RnAHZN?|Ag@"
     

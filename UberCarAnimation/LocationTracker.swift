@@ -148,12 +148,3 @@ extension LocationTracker: CLLocationManagerDelegate {
     }
 }
 
-extension CLLocation {
-    var stringJSON: [String: Any] {
-        return [
-            "latitude": coordinate.latitude,
-            "longitude": coordinate.longitude
-        ]
-    }
-    
-}
