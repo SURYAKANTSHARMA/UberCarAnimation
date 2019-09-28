@@ -5,7 +5,7 @@ target 'UberCarAnimation' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
     pod 'GoogleMaps'
-    pod 'GooglePlaces'
+    
   # Pods for UberAnimation
 
 end

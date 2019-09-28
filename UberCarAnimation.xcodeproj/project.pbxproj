@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57E95F1573393540A61BF870 /* Pods_UberCarAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7EB201328561EA6D3E3026 /* Pods_UberCarAnimation.framework */; };
 		85F321A6233FC767007261C6 /* keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A5233FC767007261C6 /* keys.swift */; };
 		85F321A8233FC8C1007261C6 /* CarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A7233FC8C1007261C6 /* CarAnimator.swift */; };
 		85F321AB233FD4EA007261C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321AA233FD4EA007261C6 /* Extensions.swift */; };
@@ -18,14 +17,13 @@
 		9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */; };
 		9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */; };
 		9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */; };
+		AB2B49F92E56DEAE9EC8CB07 /* Pods_UberCarAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D7EB201328561EA6D3E3026 /* Pods_UberCarAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F321A5233FC767007261C6 /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
 		85F321A7233FC8C1007261C6 /* CarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnimator.swift; sourceTree = "<group>"; };
 		85F321AA233FD4EA007261C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		93CEA0CA353D5E5FB3B1993E /* Pods-UberCarAnimation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.debug.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.debug.xcconfig"; sourceTree = "<group>"; };
 		9A32E78021A40A9C00D9D510 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		9A3E6B2821A2BF0700DC2839 /* UberCarAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCarAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +33,9 @@
 		9A3E6B3521A2BF0900DC2839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A3E6B3721A2BF0900DC2839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mapstogpx20190207_115833.gpx; sourceTree = "<group>"; };
-		CF69316C1B454709CD7D662A /* Pods-UberCarAnimation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.release.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.release.xcconfig"; sourceTree = "<group>"; };
+		9D8CB1FD916ABE4B4CF72F09 /* Pods-UberCarAnimation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.release.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.release.xcconfig"; sourceTree = "<group>"; };
+		E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE3F08E412B5D71F243F122E /* Pods-UberCarAnimation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.debug.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E95F1573393540A61BF870 /* Pods_UberCarAnimation.framework in Frameworks */,
+				AB2B49F92E56DEAE9EC8CB07 /* Pods_UberCarAnimation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +53,8 @@
 		7E2399DC019E8D58F326A63B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				93CEA0CA353D5E5FB3B1993E /* Pods-UberCarAnimation.debug.xcconfig */,
-				CF69316C1B454709CD7D662A /* Pods-UberCarAnimation.release.xcconfig */,
+				FE3F08E412B5D71F243F122E /* Pods-UberCarAnimation.debug.xcconfig */,
+				9D8CB1FD916ABE4B4CF72F09 /* Pods-UberCarAnimation.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -76,7 +76,7 @@
 				9A3E6B2A21A2BF0700DC2839 /* UberCarAnimation */,
 				9A3E6B2921A2BF0700DC2839 /* Products */,
 				7E2399DC019E8D58F326A63B /* Pods */,
-				F584C8E9B20892589E31F15E /* Frameworks */,
+				F1142FB21465729AA39C8403 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +103,10 @@
 			path = UberCarAnimation;
 			sourceTree = "<group>";
 		};
-		F584C8E9B20892589E31F15E /* Frameworks */ = {
+		F1142FB21465729AA39C8403 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D7EB201328561EA6D3E3026 /* Pods_UberCarAnimation.framework */,
+				E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,11 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A3E6B3A21A2BF0900DC2839 /* Build configuration list for PBXNativeTarget "UberCarAnimation" */;
 			buildPhases = (
-				9BA0BE279634CC71609CD3F9 /* [CP] Check Pods Manifest.lock */,
+				6FA5AFCA05C375016062175D /* [CP] Check Pods Manifest.lock */,
 				9A3E6B2421A2BF0700DC2839 /* Sources */,
 				9A3E6B2521A2BF0700DC2839 /* Frameworks */,
 				9A3E6B2621A2BF0700DC2839 /* Resources */,
-				CDB253A0B6264D8FDAC22B54 /* [CP] Copy Pods Resources */,
+				C61E5DC19BD8D135250E364F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,7 +187,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9BA0BE279634CC71609CD3F9 /* [CP] Check Pods Manifest.lock */ = {
+		6FA5AFCA05C375016062175D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,7 +209,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CDB253A0B6264D8FDAC22B54 /* [CP] Copy Pods Resources */ = {
+		C61E5DC19BD8D135250E364F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,7 +382,7 @@
 		};
 		9A3E6B3B21A2BF0900DC2839 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93CEA0CA353D5E5FB3B1993E /* Pods-UberCarAnimation.debug.xcconfig */;
+			baseConfigurationReference = FE3F08E412B5D71F243F122E /* Pods-UberCarAnimation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -401,7 +401,7 @@
 		};
 		9A3E6B3C21A2BF0900DC2839 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF69316C1B454709CD7D662A /* Pods-UberCarAnimation.release.xcconfig */;
+			baseConfigurationReference = 9D8CB1FD916ABE4B4CF72F09 /* Pods-UberCarAnimation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
