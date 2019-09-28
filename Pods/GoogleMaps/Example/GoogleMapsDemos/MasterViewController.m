@@ -19,6 +19,7 @@
 #import "GoogleMapsDemos/DemoAppDelegate.h"
 #import "GoogleMapsDemos/Samples/Samples.h"
 
+
 @implementation MasterViewController {
   NSArray *_demos;
   NSArray *_demoSections;
@@ -46,7 +47,7 @@
   }
 
   self.title = NSLocalizedString(@"Maps SDK Demos", @"Maps SDK Demos");
-  self.title = [NSString stringWithFormat:@"%@: %@", self.title, [GMSServices SDKVersion]];
+  self.title = [NSString stringWithFormat:@"%@: %@", self.title, [GMSServices SDKLongVersion]];
 
   self.tableView.autoresizingMask =
       UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
