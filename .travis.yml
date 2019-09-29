@@ -1,0 +1,7 @@
+osx_image: xcode11
+language: swift
+xcode_project: UberCarAnimation/UberCarAnimation.xcodeproj
+script:
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project UberCarAnimation/UberCarAnimation.xcodeproj -scheme UberCarAnimation -destination 'platform=iOS Simulator,OS=13,name=iPhone 7' ONLY_ACTIVE_ARCH=YES
+after_success:
+  - bash <(curl -s https://codecov.io/bash
