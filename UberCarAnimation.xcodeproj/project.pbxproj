@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8517585E23425103006BE904 /* UberCarAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517585D23425103006BE904 /* UberCarAnimationTests.swift */; };
 		85F321A6233FC767007261C6 /* keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A5233FC767007261C6 /* keys.swift */; };
 		85F321A8233FC8C1007261C6 /* CarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A7233FC8C1007261C6 /* CarAnimator.swift */; };
 		85F321AB233FD4EA007261C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321AA233FD4EA007261C6 /* Extensions.swift */; };
@@ -20,7 +21,20 @@
 		AB2B49F92E56DEAE9EC8CB07 /* Pods_UberCarAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8517586023425103006BE904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A3E6B2021A2BF0700DC2839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A3E6B2721A2BF0700DC2839;
+			remoteInfo = UberCarAnimation;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8517585B23425103006BE904 /* UberCarAnimationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberCarAnimationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8517585D23425103006BE904 /* UberCarAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarAnimationTests.swift; sourceTree = "<group>"; };
+		8517585F23425103006BE904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85F321A5233FC767007261C6 /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
 		85F321A7233FC8C1007261C6 /* CarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnimator.swift; sourceTree = "<group>"; };
 		85F321AA233FD4EA007261C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -39,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8517585823425103006BE904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A3E6B2521A2BF0700DC2839 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,6 +80,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8517585C23425103006BE904 /* UberCarAnimationTests */ = {
+			isa = PBXGroup;
+			children = (
+				8517585D23425103006BE904 /* UberCarAnimationTests.swift */,
+				8517585F23425103006BE904 /* Info.plist */,
+			);
+			path = UberCarAnimationTests;
+			sourceTree = "<group>";
+		};
 		85F321A9233FC8C8007261C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3E6B2A21A2BF0700DC2839 /* UberCarAnimation */,
+				8517585C23425103006BE904 /* UberCarAnimationTests */,
 				9A3E6B2921A2BF0700DC2839 /* Products */,
 				7E2399DC019E8D58F326A63B /* Pods */,
 				F1142FB21465729AA39C8403 /* Frameworks */,
@@ -84,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3E6B2821A2BF0700DC2839 /* UberCarAnimation.app */,
+				8517585B23425103006BE904 /* UberCarAnimationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +146,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8517585A23425103006BE904 /* UberCarAnimationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8517586423425103006BE904 /* Build configuration list for PBXNativeTarget "UberCarAnimationTests" */;
+			buildPhases = (
+				8517585723425103006BE904 /* Sources */,
+				8517585823425103006BE904 /* Frameworks */,
+				8517585923425103006BE904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8517586123425103006BE904 /* PBXTargetDependency */,
+			);
+			name = UberCarAnimationTests;
+			productName = UberCarAnimationTests;
+			productReference = 8517585B23425103006BE904 /* UberCarAnimationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9A3E6B2721A2BF0700DC2839 /* UberCarAnimation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A3E6B3A21A2BF0900DC2839 /* Build configuration list for PBXNativeTarget "UberCarAnimation" */;
@@ -139,10 +189,14 @@
 		9A3E6B2021A2BF0700DC2839 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Mac mini";
 				TargetAttributes = {
+					8517585A23425103006BE904 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 9A3E6B2721A2BF0700DC2839;
+					};
 					9A3E6B2721A2BF0700DC2839 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1100;
@@ -168,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				9A3E6B2721A2BF0700DC2839 /* UberCarAnimation */,
+				8517585A23425103006BE904 /* UberCarAnimationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8517585923425103006BE904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A3E6B2621A2BF0700DC2839 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +291,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8517585723425103006BE904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8517585E23425103006BE904 /* UberCarAnimationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A3E6B2421A2BF0700DC2839 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +313,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8517586123425103006BE904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A3E6B2721A2BF0700DC2839 /* UberCarAnimation */;
+			targetProxy = 8517586023425103006BE904 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9A3E6B2F21A2BF0700DC2839 /* Main.storyboard */ = {
@@ -264,6 +342,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8517586223425103006BE904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UberCarAnimationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = github.UberCarAnimationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UberCarAnimation.app/UberCarAnimation";
+			};
+			name = Debug;
+		};
+		8517586323425103006BE904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UberCarAnimationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = github.UberCarAnimationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UberCarAnimation.app/UberCarAnimation";
+			};
+			name = Release;
+		};
 		9A3E6B3821A2BF0900DC2839 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -421,6 +539,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8517586423425103006BE904 /* Build configuration list for PBXNativeTarget "UberCarAnimationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8517586223425103006BE904 /* Debug */,
+				8517586323425103006BE904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9A3E6B2321A2BF0700DC2839 /* Build configuration list for PBXProject "UberCarAnimation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
