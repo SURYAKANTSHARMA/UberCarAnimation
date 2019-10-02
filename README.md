@@ -6,8 +6,8 @@ This app is for demoing animating the car like uber from one position to another
 Xcode 10.1+
 Swift 4.2+ 
 # Usage 
-Replace `ADD_YOUR_GOOGLE_API_KE` in class `AppDelegate.swift` from your actual google api key from [Here](https://developers.google.com/maps/documentation/ios-sdk/get-api-key)
-Once you have your app running in the simulator, select simulate locations in xcode as follows
+Replace `ADD_YOUR_GOOGLE_API_KEY` in class `AppDelegate.swift` from your actual google api key from [Here](https://developers.google.com/maps/documentation/ios-sdk/get-api-key)
+Once you have your app running in the simulator, select simulate locations in Xcode as follows
 ![screen shot 2019-02-11 at 6 08 12 pm](https://user-images.githubusercontent.com/6416095/52563640-0d680080-2e28-11e9-9c03-51c3720b3d69.png)
 
 You will see nice moving car with uber like animation like below
