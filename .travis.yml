@@ -1,4 +1,6 @@
 osx_image: xcode11
 language: swift
+before_install:
+- gem install cocoapods
 xcode_project: UberCarAnimation.xcodeproj
 xcode_destination: platform=iOS Simulator,OS=13,name=iPhone 7
