@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     private var carAnimator: CarAnimator!
     override func viewDidLoad() {
         super.viewDidLoad()
+		configureMapStyle()
         mapView.drawPath(GMSMapView.pathString)
         LocationTracker.shared.locateMeOnLocationChange { [weak self]  _  in
             self?.moveCarMarker()
@@ -37,6 +38,19 @@ class ViewController: UIViewController {
             carAnimator.animate(from: myLastLocation, to: myLocation)
         }
     }
+
+	// MARK: UI Configuration
+
+	private func configureMapStyle() {
+		mapView.mapStyle = mapStyle(traitCollection.userInterfaceStyle)
+	}
+
+	// MARK: Helpers
+
+	private func mapStyle(_ style: UIUserInterfaceStyle) -> GMSMapStyle? {
+		let styleResourceName = "mapStyle\(style.rawValue)"
+		guard let styleURL = Bundle.main.url(forResource: styleResourceName, withExtension: "json") else { return nil }
+		let mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+		return mapStyle
+	}
 }
-
-
