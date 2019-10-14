@@ -19,6 +19,7 @@
 		9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */; };
 		9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */; };
 		AB2B49F92E56DEAE9EC8CB07 /* Pods_UberCarAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */; };
+		D0BA7ACB23537BF3009F71EE /* mapStyle2.json in Resources */ = {isa = PBXBuildFile; fileRef = D0BA7ACA23537BF3009F71EE /* mapStyle2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9A3E6B3721A2BF0900DC2839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mapstogpx20190207_115833.gpx; sourceTree = "<group>"; };
 		9D8CB1FD916ABE4B4CF72F09 /* Pods-UberCarAnimation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.release.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.release.xcconfig"; sourceTree = "<group>"; };
+		D0BA7ACA23537BF3009F71EE /* mapStyle2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapStyle2.json; sourceTree = "<group>"; };
 		E8285135CEC315BE17AC7F5A /* Pods_UberCarAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3F08E412B5D71F243F122E /* Pods-UberCarAnimation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarAnimation.debug.xcconfig"; path = "Target Support Files/Pods-UberCarAnimation/Pods-UberCarAnimation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */,
 				9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */,
 				9A3E6B3721A2BF0900DC2839 /* Info.plist */,
+				D0BA7ACA23537BF3009F71EE /* mapStyle2.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */,
 				9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */,
 				9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */,
+				D0BA7ACB23537BF3009F71EE /* mapStyle2.json in Resources */,
 				9A3E6B3121A2BF0700DC2839 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

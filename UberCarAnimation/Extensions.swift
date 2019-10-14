@@ -30,11 +30,18 @@ extension GMSMapView {
         let path = GMSPath(fromEncodedPath: encodedPathString)
         let line = GMSPolyline(path: path)
         line.strokeWidth = 4.0
-        line.strokeColor = UIColor.black
+		line.strokeColor = UIColor.routeColor
         line.isTappable = true
         line.map = self
         CATransaction.commit()
     }
+}
+
+extension UIColor {
+	static var routeColor: UIColor {
+		guard let color = UIColor(named: "routeColor") else { return .black }
+		return color
+	}
 }
 
 extension CLLocationCoordinate2D {
