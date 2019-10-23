@@ -35,6 +35,9 @@ struct CarAnimator {
         // Keep Rotation Short
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
+        CATransaction.setCompletionBlock({
+            // you can do something here
+        })
         carMarker.rotation = source.bearing(to: destination)
         carMarker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
         CATransaction.commit()
@@ -49,6 +52,21 @@ struct CarAnimator {
         mapView.animate(with: camera)
         
         CATransaction.commit()
+    }
+    
+    func pauseLayer(layer: CALayer) {
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    func resumeLayer(layer: CALayer) {
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
     }
 }
 
