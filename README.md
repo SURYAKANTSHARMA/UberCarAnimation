@@ -24,5 +24,5 @@ Pause and play
 2. Press the pause button to pause car animation and play to resume the animation
 
 <p align="center">
-<img src= "https://user-images.githubusercontent.com/42418337/67364245-c85aa900-f534-11e9-9941-ce213e6273e2.gif" width="400" height = "865" >
+<img src= "https://user-images.githubusercontent.com/42418337/67364245-c85aa900-f534-11e9-9941-ce213e6273e2.gif" width="800" height = "865" >
 </p>
