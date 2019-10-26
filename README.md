@@ -18,7 +18,7 @@ Note: We are using the static path string for giving driving road location from 
 
 | Light Mode        | Dark Mode  |
 |:-----------------:|:---------------------:| 
-|<img src= "https://user-images.githubusercontent.com/6416095/52931260-c6bb5e80-3371-11e9-9d46-83f7d1389d18.gif" width="400" height = "865">|<img src= "Resources/darkmode.gif" width="400" height = "865">|
+|<img src= "https://user-images.githubusercontent.com/6416095/52931260-c6bb5e80-3371-11e9-9d46-83f7d1389d18.gif" width="400" height = "865">|<img src= "Resources/darkmode.gif" width="400" height = "865" alt = "Unable to load gif">|
 
 Pause and play
 
