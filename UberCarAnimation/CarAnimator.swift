@@ -2,7 +2,7 @@
 //  CarAnimation.swift
 //  UberCarAnimation
 //
-//  Created by tokopedia on 28/09/19.
+//  Created by SuryakantSharma on 28/09/19.
 //  Copyright © 2019 Mac mini. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
