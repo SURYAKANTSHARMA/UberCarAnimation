@@ -13,11 +13,12 @@ import CoreLocation
 
 class ViewController: UIViewController {
     
-    // MARK :- Variable
+    // MARK :- Variables
     private var myLocationMarker: GMSMarker!
     @IBOutlet weak var mapView: GMSMapView!
     private var carAnimator: CarAnimator!
     private var stopped = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		configureMapStyle()
@@ -53,14 +54,23 @@ class ViewController: UIViewController {
         let playButton = UIButton()
         playButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(playButton)
-        playButton.setImage(UIImage(named: "playIcon"), for: .normal)
         playButton.addTarget(self, action: #selector(resumeMarker), for: .touchUpInside)
         
         let pauseButton = UIButton()
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(pauseButton)
-        pauseButton.setImage(UIImage(named: "pauseIcon"), for: .normal)
         pauseButton.addTarget(self, action: #selector(pauseMarker), for: .touchUpInside)
+        
+        if #available(iOS 13.0, *) {
+            let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .black, scale: .large)
+            playButton.setImage(UIImage(systemName: "play.circle.fill",withConfiguration: config), for: .normal)
+            pauseButton.setImage(UIImage(systemName: "pause.circle.fill",withConfiguration: config), for: .normal)
+            playButton.tintColor = .routeColor
+            pauseButton.tintColor = .routeColor
+        } else {
+            playButton.setImage(UIImage(named: "playIcon"), for: .normal)
+            pauseButton.setImage(UIImage(named: "pauseIcon"), for: .normal)
+        }
         
         NSLayoutConstraint.activate([
             playButton.heightAnchor.constraint(equalToConstant: 60),
