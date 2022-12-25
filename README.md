@@ -25,4 +25,5 @@ Pause and play
 1. Simulate the location on the simulator
 2. Press the pause button to pause car animation and play to resume the animation
 
-
+# Video Tutorial 
+[Youtube video](https://www.youtube.com/watch?v=C03cw4SvaQg) on extracting this repo code for own use
