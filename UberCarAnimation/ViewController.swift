@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     private var myLocationMarker: GMSMarker!
     @IBOutlet weak var mapView: GMSMapView!
     private var carAnimator: CarAnimator!
-    private var stopped = false
+    private var isStopped = false {
+        didSet {
+            updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +42,8 @@ class ViewController: UIViewController {
             carAnimator = CarAnimator(carMarker: myLocationMarker, mapView: mapView)
             self.mapView.updateMap(toLocation: myLocation, zoomLevel: 16)
         } else if let myLocation = LocationTracker.shared.lastLocation?.coordinate, let myLastLocation = LocationTracker.shared.previousLocation?.coordinate {
-            if !stopped {
+            if !isStopped {
+                self.mapView.animate(toZoom: 16)
                 carAnimator.animate(from: myLastLocation, to: myLocation)
             }
         }
@@ -49,14 +54,14 @@ class ViewController: UIViewController {
 	private func configureMapStyle() {
 		mapView.mapStyle = mapStyle(traitCollection.userInterfaceStyle)
 	}
-    
+    let playButton = UIButton()
+    let pauseButton = UIButton()
+
     private func addButtons() {
-        let playButton = UIButton()
         playButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(playButton)
         playButton.addTarget(self, action: #selector(resumeMarker), for: .touchUpInside)
         
-        let pauseButton = UIButton()
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(pauseButton)
         pauseButton.addTarget(self, action: #selector(pauseMarker), for: .touchUpInside)
@@ -99,13 +104,20 @@ class ViewController: UIViewController {
     
     @objc func resumeMarker() {
         guard let markerLayer = carAnimator?.carMarker.layer else { return }
-        stopped = false
+        isStopped = false
         carAnimator.resumeLayer(layer: markerLayer)
     }
     
     @objc func pauseMarker() {
         guard let markerLayer = carAnimator?.carMarker.layer else { return }
-        stopped = true
+        isStopped = true
         carAnimator.pauseLayer(layer: markerLayer)
+    }
+    
+    func updateUI() {
+        UIView.animate(withDuration: 0.7) {
+            playButton.isHidden = !isStopped
+            pauseButton.isHidden = isStopped
+        }
     }
 }
