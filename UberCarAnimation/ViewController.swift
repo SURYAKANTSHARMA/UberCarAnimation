@@ -116,8 +116,8 @@ class ViewController: UIViewController {
     
     func updateUI() {
         UIView.animate(withDuration: 0.7) {
-            playButton.isHidden = !isStopped
-            pauseButton.isHidden = isStopped
+            self.playButton.isHidden = !self.isStopped
+            self.pauseButton.isHidden = self.isStopped
         }
     }
 }
