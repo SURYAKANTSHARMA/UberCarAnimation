@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         playButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(playButton)
         playButton.addTarget(self, action: #selector(resumeMarker), for: .touchUpInside)
-        
+        pauseButton.isHidden = true 
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
         mapView.addSubview(pauseButton)
         pauseButton.addTarget(self, action: #selector(pauseMarker), for: .touchUpInside)
