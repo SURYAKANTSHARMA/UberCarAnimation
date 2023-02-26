@@ -13,7 +13,7 @@ class MapContentViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     @Published var location: CLLocation?
 
-    func startLocationUpdates() {
+     init() {
         cancellable = locationPublisher.locationPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] location in

@@ -37,7 +37,7 @@ struct MapContentView: View {
               }
             }.padding()
             .onAppear() {
-                viewModel.startLocationUpdates()
+               
             }
     }
 }
