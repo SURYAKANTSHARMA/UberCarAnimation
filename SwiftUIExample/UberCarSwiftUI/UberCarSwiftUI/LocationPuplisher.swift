@@ -14,6 +14,9 @@ class LocationPublisher: NSObject, CLLocationManagerDelegate {
     
     let locationPublisher = PassthroughSubject<CLLocation, Never>()
 
+    deinit {
+        print("deinit")
+    }
     override init() {
         super.init()
         locationManager.requestWhenInUseAuthorization()
@@ -26,7 +29,7 @@ class LocationPublisher: NSObject, CLLocationManagerDelegate {
             locationPublisher.send(location)
         }
     }
-    
+        
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .authorizedWhenInUse {
@@ -35,6 +38,7 @@ class LocationPublisher: NSObject, CLLocationManagerDelegate {
 
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+            manager.startUpdatingLocation()
         } else {
             // User has denied location permission or location services are disabled
         }

@@ -27,12 +27,21 @@
 import Foundation
 import GoogleMaps
 
-struct CarAnimator {
+class CarAnimator {
+    
+    internal init(carMarker: GMSMarker, mapView: GMSMapView) {
+        self.carMarker = carMarker
+        self.mapView = mapView
+    }
+    
     let carMarker: GMSMarker
     let mapView: GMSMapView
     
     func animate(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
         // Keep Rotation Short
+        print("source \(source)")
+        print("destination \(destination)")
+
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
         CATransaction.setCompletionBlock({

@@ -10,15 +10,25 @@ import CoreLocation
 
 class MapContentViewModel: ObservableObject {
     let locationPublisher = LocationPublisher()
-    private var cancellable: AnyCancellable?
-    @Published var location: CLLocation?
+    private var cancellable = Set<AnyCancellable>()
+    @Published var lastTwoLocations: (CLLocationCoordinate2D?, CLLocationCoordinate2D?) = (nil, nil)
+
+    deinit {
+        print("deinit")
+    }
 
      init() {
-        cancellable = locationPublisher.locationPublisher
+        locationPublisher.locationPublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] location in
-                self?.location = location
-            }
+            .scan((nil, nil), { locations, location in
+                return (locations.1, CLLocationCoordinate2D(
+                    latitude: location.coordinate.latitude,
+                    longitude: location.coordinate.longitude))
+            })
+            .compactMap { $0 }
+            .sink { [weak self] locations in
+                self?.lastTwoLocations = locations
+            }.store(in: &cancellable)
     }
 
 }

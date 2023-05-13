@@ -11,11 +11,10 @@ import GoogleMaps
 struct MapContentView: View {
     
     @State var isPlaying: Bool = false
-    @ObservedObject var viewModel = MapContentViewModel()
-    
+    @Binding var locations: (CLLocationCoordinate2D?, CLLocationCoordinate2D?)
     var body: some View {
         VStack {
-            MapView(centerCoordinate: viewModel.location?.coordinate)
+            MapView(currentLocationCoordinate: $locations)
             HStack {
                 if isPlaying == false {
                     Button(action: {
@@ -44,7 +43,9 @@ struct MapContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    @ObservedObject static var viewModel = MapContentViewModel()
+
     static var previews: some View {
-        MapContentView()
+        MapContentView(locations: $viewModel.lastTwoLocations)
     }
 }

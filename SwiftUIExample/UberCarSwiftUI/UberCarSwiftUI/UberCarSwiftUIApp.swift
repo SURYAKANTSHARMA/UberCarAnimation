@@ -11,10 +11,12 @@ let ADD_YOUR_GOOGLE_API_KEY = "AIzaSyCd66Czq6Ezt72pOAKe27rTgM_PCVZDl0U"
 
 @main
 struct UberCarSwiftUIApp: App {
+    @StateObject var viewModel = MapContentViewModel()
+
     var body: some Scene {
-        
         WindowGroup {
-            MapContentView()
+            MapContentView(locations: $viewModel.lastTwoLocations)
+                .environmentObject(viewModel)
         }
     }
 }
