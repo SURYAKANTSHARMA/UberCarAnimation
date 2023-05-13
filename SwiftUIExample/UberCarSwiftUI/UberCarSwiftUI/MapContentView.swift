@@ -12,6 +12,12 @@ struct MapContentView: View {
     
     @State var isPlaying: Bool = false
     @Binding var locations: (CLLocationCoordinate2D?, CLLocationCoordinate2D?)
+    
+    init(locations: Binding<(CLLocationCoordinate2D?, CLLocationCoordinate2D?)>) {
+        _locations = locations
+        GMSServices.provideAPIKey(ADD_YOUR_GOOGLE_API_KEY)
+    }
+
     var body: some View {
         VStack {
             MapView(currentLocationCoordinate: $locations)

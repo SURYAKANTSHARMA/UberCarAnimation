@@ -10,33 +10,17 @@ import GoogleMaps
 
 struct MapView: UIViewRepresentable {
     @Binding var currentLocationCoordinate: (CLLocationCoordinate2D?, CLLocationCoordinate2D?)
-    var carMarker: GMSMarker
-    var mapView: GMSMapView
-    var carAnimator: CarAnimator
-    
-    init(currentLocationCoordinate: Binding<(CLLocationCoordinate2D?, CLLocationCoordinate2D?)> ) {
-        GMSServices.provideAPIKey(ADD_YOUR_GOOGLE_API_KEY)
-        let map = GMSMapView()
-        mapView = map
-        let marker = GMSMarker()
-        carMarker = marker
-        carAnimator = CarAnimator(carMarker: marker, mapView: map)
+    @State private var carMarker: GMSMarker = GMSMarker()
+    @State private var mapView: GMSMapView = GMSMapView()
+    @State var carAnimator: CarAnimator!
 
-//        carMarker.map = mapView
-//        carMarker.position = CLLocationCoordinate2D(
-//            latitude: 30.6751951, longitude: 76.7401675)
+    init(currentLocationCoordinate: Binding<(CLLocationCoordinate2D?, CLLocationCoordinate2D?)>) {
 
-        
-        self._currentLocationCoordinate = currentLocationCoordinate
-        carMarker.icon = UIImage(named: "car")
-
-//        guard let currentLocationCoordinate else { return }
-//        if let lastCoordinate = currentLocationCoordinate.wrappedValue.0,
-//        let currentLocation = currentLocationCoordinate.wrappedValue.1 {
-//            carAnimator.animate(from: lastCoordinate, to: currentLocation)
-//        }
-
-    }
+            self._currentLocationCoordinate = currentLocationCoordinate
+                        
+            // Configure carMarker
+            carMarker.icon = UIImage(named: "car")
+        }
     
     func makeUIView(context: Context) -> GMSMapView {
 //        guard let currentLocationCoordinate else { fatalError() }
@@ -63,11 +47,15 @@ struct MapView: UIViewRepresentable {
         
     func updateUIView(_ mapView: GMSMapView, context: MapView.Context) {
 //        guard let currentLocationCoordinate else { return }
-        carMarker.map = nil
-
+//        carMarker.map = nil
+        if carAnimator == nil {
+            DispatchQueue.main.async {
+                carAnimator = CarAnimator(carMarker: carMarker, mapView: mapView)
+            }
+        }
         if let lastCoordinate = currentLocationCoordinate.0,
         let currentLocation = currentLocationCoordinate.1 {
-            carAnimator.animate(from: lastCoordinate, to: currentLocation)
+            carAnimator?.animate(from: lastCoordinate, to: currentLocation)
             if carMarker.map == nil {
                 carMarker.map = mapView
             }
