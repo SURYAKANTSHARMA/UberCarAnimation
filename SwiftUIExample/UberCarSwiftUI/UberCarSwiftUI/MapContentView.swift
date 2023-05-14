@@ -12,7 +12,8 @@ struct MapContentView: View {
     
     @State var isPlaying: Bool = false
     @Binding var locations: (CLLocationCoordinate2D?, CLLocationCoordinate2D?)
-    
+    @EnvironmentObject var viewModel: MapContentViewModel
+
     init(locations: Binding<(CLLocationCoordinate2D?, CLLocationCoordinate2D?)>) {
         _locations = locations
         GMSServices.provideAPIKey(ADD_YOUR_GOOGLE_API_KEY)
@@ -25,6 +26,7 @@ struct MapContentView: View {
                 if isPlaying == false {
                     Button(action: {
                         isPlaying = true
+                        viewModel.startPublishing()
                     }) {
                         Image(systemName: "play.fill")
                             .font(.title)
@@ -33,17 +35,15 @@ struct MapContentView: View {
                     Button(action: {
                         // Pause action
                         isPlaying = false
+                        viewModel.stopPublishing()
                     }) {
                         Image(systemName: "pause.fill")
                             .font(.title)
                     }
-
+                    
                 }
-              }
-            }.padding()
-            .onAppear() {
-               
             }
+        }.padding()
     }
 }
 
