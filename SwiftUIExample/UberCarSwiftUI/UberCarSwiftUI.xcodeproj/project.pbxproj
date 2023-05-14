@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B816922EA22C6DEBF1494BA /* Pods_UberCarSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8312BBDFD7E3212B7DB389 /* Pods_UberCarSwiftUITests.framework */; };
+		6A1EF6902CE3EE8DCEC6EF88 /* Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E02604178F9A33D092741D /* Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework */; };
+		7DD19C7B32CBE0808E8642E7 /* Pods_UberCarSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81A3655AC1E38D0BAA1BCC7 /* Pods_UberCarSwiftUI.framework */; };
+		D891B2D42997A0AB00541C73 /* UberCarSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B2D32997A0AB00541C73 /* UberCarSwiftUIApp.swift */; };
+		D891B2D62997A0AB00541C73 /* MapContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B2D52997A0AB00541C73 /* MapContentView.swift */; };
+		D891B2D82997A0AE00541C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D891B2D72997A0AE00541C73 /* Assets.xcassets */; };
+		D891B2DB2997A0AE00541C73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D891B2DA2997A0AE00541C73 /* Preview Assets.xcassets */; };
+		D891B2E52997A0AE00541C73 /* UberCarSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B2E42997A0AE00541C73 /* UberCarSwiftUITests.swift */; };
+		D891B2EF2997A0AE00541C73 /* UberCarSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B2EE2997A0AE00541C73 /* UberCarSwiftUIUITests.swift */; };
+		D891B2F12997A0AE00541C73 /* UberCarSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B2F02997A0AE00541C73 /* UberCarSwiftUIUITestsLaunchTests.swift */; };
+		D891B3062997A0F500541C73 /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D891B3002997A0F500541C73 /* mapstogpx20190207_115833.gpx */; };
+		D891B3072997A0F500541C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D891B3012997A0F500541C73 /* Assets.xcassets */; };
+		D891B3092997A0F500541C73 /* mapStyle2.json in Resources */ = {isa = PBXBuildFile; fileRef = D891B3042997A0F500541C73 /* mapStyle2.json */; };
+		D891B30C2998EA0000541C73 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B30B2998E9FF00541C73 /* MapView.swift */; };
+		D891B30E2998F73400541C73 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B30D2998F73400541C73 /* Extensions.swift */; };
+		D891B3102999186C00541C73 /* CarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B30F2999186C00541C73 /* CarAnimator.swift */; };
+		D891B31229991AC800541C73 /* MapContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B31129991AC800541C73 /* MapContentViewModel.swift */; };
+		D891B31429991B0200541C73 /* LocationPuplisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D891B31329991B0200541C73 /* LocationPuplisher.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D891B2E12997A0AE00541C73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D891B2C82997A0AB00541C73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D891B2CF2997A0AB00541C73;
+			remoteInfo = UberCarSwiftUI;
+		};
+		D891B2EB2997A0AE00541C73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D891B2C82997A0AB00541C73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D891B2CF2997A0AB00541C73;
+			remoteInfo = UberCarSwiftUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E02604178F9A33D092741D /* Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A61F7824F17360871CC943A /* Pods-UberCarSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUITests/Pods-UberCarSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F8312BBDFD7E3212B7DB389 /* Pods_UberCarSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84F193497AD3D24CB4D32883 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUI-UberCarSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUI-UberCarSwiftUIUITests/Pods-UberCarSwiftUI-UberCarSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8FB271F9711123BCCA704F2B /* Pods-UberCarSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUITests/Pods-UberCarSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A81A3655AC1E38D0BAA1BCC7 /* Pods_UberCarSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCarSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59E45BF88712AF12CC4A3E7 /* Pods-UberCarSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUI/Pods-UberCarSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		C32E0CD89219E3E22E08F556 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUI-UberCarSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUI-UberCarSwiftUIUITests/Pods-UberCarSwiftUI-UberCarSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C8D25978D6D221E7D8F2B851 /* Pods-UberCarSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCarSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-UberCarSwiftUI/Pods-UberCarSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		D891B2D02997A0AB00541C73 /* UberCarSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCarSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D891B2D32997A0AB00541C73 /* UberCarSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarSwiftUIApp.swift; sourceTree = "<group>"; };
+		D891B2D52997A0AB00541C73 /* MapContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentView.swift; sourceTree = "<group>"; };
+		D891B2D72997A0AE00541C73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D891B2DA2997A0AE00541C73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D891B2E02997A0AE00541C73 /* UberCarSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberCarSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D891B2E42997A0AE00541C73 /* UberCarSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarSwiftUITests.swift; sourceTree = "<group>"; };
+		D891B2EA2997A0AE00541C73 /* UberCarSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberCarSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D891B2EE2997A0AE00541C73 /* UberCarSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarSwiftUIUITests.swift; sourceTree = "<group>"; };
+		D891B2F02997A0AE00541C73 /* UberCarSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D891B3002997A0F500541C73 /* mapstogpx20190207_115833.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mapstogpx20190207_115833.gpx; sourceTree = "<group>"; };
+		D891B3012997A0F500541C73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D891B3042997A0F500541C73 /* mapStyle2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle2.json; sourceTree = "<group>"; };
+		D891B30B2998E9FF00541C73 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D891B30D2998F73400541C73 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D891B30F2999186C00541C73 /* CarAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarAnimator.swift; sourceTree = "<group>"; };
+		D891B31129991AC800541C73 /* MapContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewModel.swift; sourceTree = "<group>"; };
+		D891B31329991B0200541C73 /* LocationPuplisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPuplisher.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D891B2CD2997A0AB00541C73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DD19C7B32CBE0808E8642E7 /* Pods_UberCarSwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2DD2997A0AE00541C73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B816922EA22C6DEBF1494BA /* Pods_UberCarSwiftUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2E72997A0AE00541C73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1EF6902CE3EE8DCEC6EF88 /* Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F60DF5F07C8686647028715 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A81A3655AC1E38D0BAA1BCC7 /* Pods_UberCarSwiftUI.framework */,
+				03E02604178F9A33D092741D /* Pods_UberCarSwiftUI_UberCarSwiftUIUITests.framework */,
+				7F8312BBDFD7E3212B7DB389 /* Pods_UberCarSwiftUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6772F8394222ADCA7A31FED9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8D25978D6D221E7D8F2B851 /* Pods-UberCarSwiftUI.debug.xcconfig */,
+				B59E45BF88712AF12CC4A3E7 /* Pods-UberCarSwiftUI.release.xcconfig */,
+				84F193497AD3D24CB4D32883 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.debug.xcconfig */,
+				C32E0CD89219E3E22E08F556 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.release.xcconfig */,
+				8FB271F9711123BCCA704F2B /* Pods-UberCarSwiftUITests.debug.xcconfig */,
+				4A61F7824F17360871CC943A /* Pods-UberCarSwiftUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D891B2C72997A0AB00541C73 = {
+			isa = PBXGroup;
+			children = (
+				D891B2D22997A0AB00541C73 /* UberCarSwiftUI */,
+				D891B2E32997A0AE00541C73 /* UberCarSwiftUITests */,
+				D891B2ED2997A0AE00541C73 /* UberCarSwiftUIUITests */,
+				D891B2D12997A0AB00541C73 /* Products */,
+				6772F8394222ADCA7A31FED9 /* Pods */,
+				0F60DF5F07C8686647028715 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D891B2D12997A0AB00541C73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D891B2D02997A0AB00541C73 /* UberCarSwiftUI.app */,
+				D891B2E02997A0AE00541C73 /* UberCarSwiftUITests.xctest */,
+				D891B2EA2997A0AE00541C73 /* UberCarSwiftUIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D891B2D22997A0AB00541C73 /* UberCarSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D891B2D32997A0AB00541C73 /* UberCarSwiftUIApp.swift */,
+				D891B30F2999186C00541C73 /* CarAnimator.swift */,
+				D891B2D52997A0AB00541C73 /* MapContentView.swift */,
+				D891B31129991AC800541C73 /* MapContentViewModel.swift */,
+				D891B30B2998E9FF00541C73 /* MapView.swift */,
+				D891B2FF2997A0F500541C73 /* Resources */,
+				D891B2D72997A0AE00541C73 /* Assets.xcassets */,
+				D891B2D92997A0AE00541C73 /* Preview Content */,
+				D891B30D2998F73400541C73 /* Extensions.swift */,
+				D891B31329991B0200541C73 /* LocationPuplisher.swift */,
+			);
+			path = UberCarSwiftUI;
+			sourceTree = "<group>";
+		};
+		D891B2D92997A0AE00541C73 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D891B2DA2997A0AE00541C73 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D891B2E32997A0AE00541C73 /* UberCarSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D891B2E42997A0AE00541C73 /* UberCarSwiftUITests.swift */,
+			);
+			path = UberCarSwiftUITests;
+			sourceTree = "<group>";
+		};
+		D891B2ED2997A0AE00541C73 /* UberCarSwiftUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D891B2EE2997A0AE00541C73 /* UberCarSwiftUIUITests.swift */,
+				D891B2F02997A0AE00541C73 /* UberCarSwiftUIUITestsLaunchTests.swift */,
+			);
+			path = UberCarSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		D891B2FF2997A0F500541C73 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D891B3002997A0F500541C73 /* mapstogpx20190207_115833.gpx */,
+				D891B3012997A0F500541C73 /* Assets.xcassets */,
+				D891B3042997A0F500541C73 /* mapStyle2.json */,
+			);
+			name = Resources;
+			path = ../../../UberCarAnimation/Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D891B2CF2997A0AB00541C73 /* UberCarSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D891B2F42997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUI" */;
+			buildPhases = (
+				E9BF03CAC90E2E6F154D5E2B /* [CP] Check Pods Manifest.lock */,
+				D891B2CC2997A0AB00541C73 /* Sources */,
+				D891B2CD2997A0AB00541C73 /* Frameworks */,
+				D891B2CE2997A0AB00541C73 /* Resources */,
+				D0651D425017F26C58ABD4E1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UberCarSwiftUI;
+			productName = UberCarSwiftUI;
+			productReference = D891B2D02997A0AB00541C73 /* UberCarSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D891B2DF2997A0AE00541C73 /* UberCarSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D891B2F72997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUITests" */;
+			buildPhases = (
+				1D0C907072FF2FA9D271CD85 /* [CP] Check Pods Manifest.lock */,
+				D891B2DC2997A0AE00541C73 /* Sources */,
+				D891B2DD2997A0AE00541C73 /* Frameworks */,
+				D891B2DE2997A0AE00541C73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D891B2E22997A0AE00541C73 /* PBXTargetDependency */,
+			);
+			name = UberCarSwiftUITests;
+			productName = UberCarSwiftUITests;
+			productReference = D891B2E02997A0AE00541C73 /* UberCarSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D891B2E92997A0AE00541C73 /* UberCarSwiftUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D891B2FA2997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUIUITests" */;
+			buildPhases = (
+				26E37FEF27B06435A76727D1 /* [CP] Check Pods Manifest.lock */,
+				D891B2E62997A0AE00541C73 /* Sources */,
+				D891B2E72997A0AE00541C73 /* Frameworks */,
+				D891B2E82997A0AE00541C73 /* Resources */,
+				00E8E4A12E5A24F06B0DA9DD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D891B2EC2997A0AE00541C73 /* PBXTargetDependency */,
+			);
+			name = UberCarSwiftUIUITests;
+			productName = UberCarSwiftUIUITests;
+			productReference = D891B2EA2997A0AE00541C73 /* UberCarSwiftUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D891B2C82997A0AB00541C73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					D891B2CF2997A0AB00541C73 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					D891B2DF2997A0AE00541C73 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = D891B2CF2997A0AB00541C73;
+					};
+					D891B2E92997A0AE00541C73 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = D891B2CF2997A0AB00541C73;
+					};
+				};
+			};
+			buildConfigurationList = D891B2CB2997A0AB00541C73 /* Build configuration list for PBXProject "UberCarSwiftUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D891B2C72997A0AB00541C73;
+			productRefGroup = D891B2D12997A0AB00541C73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D891B2CF2997A0AB00541C73 /* UberCarSwiftUI */,
+				D891B2DF2997A0AE00541C73 /* UberCarSwiftUITests */,
+				D891B2E92997A0AE00541C73 /* UberCarSwiftUIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D891B2CE2997A0AB00541C73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D891B2DB2997A0AE00541C73 /* Preview Assets.xcassets in Resources */,
+				D891B3092997A0F500541C73 /* mapStyle2.json in Resources */,
+				D891B3062997A0F500541C73 /* mapstogpx20190207_115833.gpx in Resources */,
+				D891B3072997A0F500541C73 /* Assets.xcassets in Resources */,
+				D891B2D82997A0AE00541C73 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2DE2997A0AE00541C73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2E82997A0AE00541C73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00E8E4A12E5A24F06B0DA9DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI-UberCarSwiftUIUITests/Pods-UberCarSwiftUI-UberCarSwiftUIUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI-UberCarSwiftUIUITests/Pods-UberCarSwiftUI-UberCarSwiftUIUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI-UberCarSwiftUIUITests/Pods-UberCarSwiftUI-UberCarSwiftUIUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D0C907072FF2FA9D271CD85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UberCarSwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26E37FEF27B06435A76727D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UberCarSwiftUI-UberCarSwiftUIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0651D425017F26C58ABD4E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI/Pods-UberCarSwiftUI-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI/Pods-UberCarSwiftUI-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UberCarSwiftUI/Pods-UberCarSwiftUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9BF03CAC90E2E6F154D5E2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UberCarSwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D891B2CC2997A0AB00541C73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D891B3102999186C00541C73 /* CarAnimator.swift in Sources */,
+				D891B2D62997A0AB00541C73 /* MapContentView.swift in Sources */,
+				D891B31429991B0200541C73 /* LocationPuplisher.swift in Sources */,
+				D891B30C2998EA0000541C73 /* MapView.swift in Sources */,
+				D891B31229991AC800541C73 /* MapContentViewModel.swift in Sources */,
+				D891B2D42997A0AB00541C73 /* UberCarSwiftUIApp.swift in Sources */,
+				D891B30E2998F73400541C73 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2DC2997A0AE00541C73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D891B2E52997A0AE00541C73 /* UberCarSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D891B2E62997A0AE00541C73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D891B2EF2997A0AE00541C73 /* UberCarSwiftUIUITests.swift in Sources */,
+				D891B2F12997A0AE00541C73 /* UberCarSwiftUIUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D891B2E22997A0AE00541C73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D891B2CF2997A0AB00541C73 /* UberCarSwiftUI */;
+			targetProxy = D891B2E12997A0AE00541C73 /* PBXContainerItemProxy */;
+		};
+		D891B2EC2997A0AE00541C73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D891B2CF2997A0AB00541C73 /* UberCarSwiftUI */;
+			targetProxy = D891B2EB2997A0AE00541C73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D891B2F22997A0AE00541C73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D891B2F32997A0AE00541C73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D891B2F52997A0AE00541C73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8D25978D6D221E7D8F2B851 /* Pods-UberCarSwiftUI.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"UberCarSwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking purpose";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D891B2F62997A0AE00541C73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B59E45BF88712AF12CC4A3E7 /* Pods-UberCarSwiftUI.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"UberCarSwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking purpose";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D891B2F82997A0AE00541C73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FB271F9711123BCCA704F2B /* Pods-UberCarSwiftUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UberCarSwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UberCarSwiftUI";
+			};
+			name = Debug;
+		};
+		D891B2F92997A0AE00541C73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A61F7824F17360871CC943A /* Pods-UberCarSwiftUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UberCarSwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UberCarSwiftUI";
+			};
+			name = Release;
+		};
+		D891B2FB2997A0AE00541C73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84F193497AD3D24CB4D32883 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UberCarSwiftUI;
+			};
+			name = Debug;
+		};
+		D891B2FC2997A0AE00541C73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C32E0CD89219E3E22E08F556 /* Pods-UberCarSwiftUI-UberCarSwiftUIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.UberCarSwiftUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UberCarSwiftUI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D891B2CB2997A0AB00541C73 /* Build configuration list for PBXProject "UberCarSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D891B2F22997A0AE00541C73 /* Debug */,
+				D891B2F32997A0AE00541C73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D891B2F42997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D891B2F52997A0AE00541C73 /* Debug */,
+				D891B2F62997A0AE00541C73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D891B2F72997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D891B2F82997A0AE00541C73 /* Debug */,
+				D891B2F92997A0AE00541C73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D891B2FA2997A0AE00541C73 /* Build configuration list for PBXNativeTarget "UberCarSwiftUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D891B2FB2997A0AE00541C73 /* Debug */,
+				D891B2FC2997A0AE00541C73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D891B2C82997A0AB00541C73 /* Project object */;
+}
