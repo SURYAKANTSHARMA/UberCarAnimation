@@ -12,7 +12,6 @@ class MapContentViewModel: ObservableObject {
     let locationPublisher = LocationPublisher()
     private var cancellable = Set<AnyCancellable>()
     @Published var lastTwoLocations: (CLLocationCoordinate2D?, CLLocationCoordinate2D?) = (nil, nil)
-
     deinit {
         print("deinit")
     }
@@ -29,6 +28,14 @@ class MapContentViewModel: ObservableObject {
             .sink { [weak self] locations in
                 self?.lastTwoLocations = locations
             }.store(in: &cancellable)
+    }
+    
+    func stopPublishing() {
+        locationPublisher.locationManager.stopUpdatingLocation()
+    }
+    
+    func startPublishing() {
+        locationPublisher.locationManager.startUpdatingLocation()
     }
 
 }
