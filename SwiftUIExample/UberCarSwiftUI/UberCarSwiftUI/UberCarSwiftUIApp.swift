@@ -17,16 +17,7 @@ struct UberCarSwiftUIApp: App {
         WindowGroup {
             MapContentView(locations: $viewModel.lastTwoLocations)
                 .environmentObject(viewModel)
-                .onAppear {
-//                    initGoogleSDK()
-                }
         }
     }
-    
-    private func initGoogleSDK() {
-        GMSServices.provideAPIKey(ADD_YOUR_GOOGLE_API_KEY)
-
-    }
-
 }
 
