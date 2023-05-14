@@ -23,7 +23,6 @@ struct MapView: UIViewRepresentable {
         }
     
     func makeUIView(context: Context) -> GMSMapView {
-//        guard let currentLocationCoordinate else { fatalError() }
 
         let camera = GMSCameraPosition.camera(
             withLatitude: currentLocationCoordinate.0?.latitude ?? 30.6751951 ,
@@ -34,7 +33,6 @@ struct MapView: UIViewRepresentable {
         mapView.drawPath(GMSMapView.pathString)
 
         mapView.mapStyle = mapStyle(UITraitCollection.current.userInterfaceStyle)
-//        mapView.overrideUserInterfaceStyle =
 
         // Set the position of the carMarker here
         if let initialCoordinate = currentLocationCoordinate.0 {
@@ -46,8 +44,6 @@ struct MapView: UIViewRepresentable {
     }
         
     func updateUIView(_ mapView: GMSMapView, context: MapView.Context) {
-//        guard let currentLocationCoordinate else { return }
-//        carMarker.map = nil
         if carAnimator == nil {
             DispatchQueue.main.async {
                 carAnimator = CarAnimator(carMarker: carMarker, mapView: mapView)
