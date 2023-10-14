@@ -16,4 +16,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build app
-      run: xcodebuild clean build test -enableCodeCoverage YES -project UberCarAnimation/UberCarAnimation.xcodeproj -scheme UberCarAnimation -destination 'platform=iOS Simulator,name=iPhone 8' ONLY_ACTIVE_ARCH=YES
+      run: xcodebuild clean build test -enableCodeCoverage YES -project UberCarAnimation.xcodeproj -scheme UberCarAnimation -destination 'platform=iOS Simulator,name=iPhone 8' ONLY_ACTIVE_ARCH=YES
