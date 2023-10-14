@@ -8,15 +8,12 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
 jobs:
   build:
 
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - uses: actions/checkout@v2
+    - name: Build app
+      run: xcodebuild clean build test -enableCodeCoverage YES -project UberCarAnimation/UberCarAnimation.xcodeproj -scheme UberCarAnimation -destination 'platform=iOS Simulator,name=iPhone 8' ONLY_ACTIVE_ARCH=YES
