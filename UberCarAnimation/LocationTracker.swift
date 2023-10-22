@@ -59,7 +59,7 @@ class LocationTracker: NSObject {
     
     func enableLocationServices() {
         locationManager.delegate = self
-        switch CLLocationManager.authorizationStatus() {
+        switch locationManager.authorizationStatus {
         case .notDetermined:
             // Request when-in-use authorization initially
             locationManager.requestWhenInUseAuthorization()
@@ -86,7 +86,7 @@ class LocationTracker: NSObject {
     
     func escalateLocationServiceAuthorization() {
         // Escalate only when the authorization is set to when-in-use
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+        if locationManager.authorizationStatus == .authorizedWhenInUse {
             locationManager.requestAlwaysAuthorization()
         }
     }
