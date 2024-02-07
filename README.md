@@ -1,7 +1,13 @@
 
 [![Travis CI](https://travis-ci.org/SURYAKANTSHARMA/UberCarAnimation.svg?branch=master)](https://travis-ci.org/SURYAKANTSHARMA/UberCarAnimation) 
 # UberAnimation
-This app is for demoing animating the car like uber from one position to another with preserving angle and smooth animation
+UberCarAnimation is a delightful and interactive iOS library that provides a smooth and realistic animation of a car moving along a route, inspired by the Uber app's ride tracking feature. This library allows you to easily integrate this dynamic animation into your own iOS app to enhance the user experience.
+
+#   Features
+Realistic animation: The library offers a lifelike animation of a car moving along a specified route, complete with smooth transitions and interactive elements.
+Customizable appearance: Developers can customize various aspects of the animation, including the car image, route color, and animation speed, to match their app's visual style.
+Simple integration: With a few lines of code, you can seamlessly integrate the UberCarAnimation into your iOS app, saving time and effort in development.
+
 # Requirements
 - Xcode 14+
 - Swift 5+ 
@@ -25,6 +31,17 @@ Pause and play
 
 1. Simulate the location on the simulator
 2. Press the pause button to pause car animation and play to resume the animation
+
+
+# Contributing
+Contributions to UberCarAnimation are welcome! If you encounter any issues or have ideas for improvements, please open an issue or submit a pull request on GitHub.
+
+# License
+UberCarAnimation is available under the MIT license. See the LICENSE file for more information.
+
+Stay Connected
+Follow [SURYAKANTSHARMA](https://github.com/SURYAKANTSHARMA/) on GitHub for the latest updates and releases.
+
 
 # Video Tutorial 
 [Youtube video](https://www.youtube.com/watch?v=C03cw4SvaQg) on extracting this repo code for own use
