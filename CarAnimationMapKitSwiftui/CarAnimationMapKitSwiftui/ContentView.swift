@@ -12,14 +12,17 @@ import CoreLocation
 struct ContentView: View {
     
     @StateObject private var viewModel = MapViewModel()
+    @State private var mapView = MKMapView()
 
     var body: some View {
         ZStack {
             MapView(coordinate: $viewModel.currentCoordinate,
-                    routeCoordinates: viewModel.routeCoordinates)
+                    routeCoordinates: viewModel.routeCoordinates,
+                    mapView: $mapView)
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     viewModel.setupLocationTracking()
+                    viewModel.setMapView(mapView)
                 }
             
             VStack {
@@ -50,6 +53,9 @@ struct ContentView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}
 #Preview {
     ContentView()
 }

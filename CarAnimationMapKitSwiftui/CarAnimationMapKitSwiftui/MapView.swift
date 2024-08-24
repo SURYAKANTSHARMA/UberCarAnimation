@@ -10,7 +10,8 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     @Binding var coordinate: CLLocationCoordinate2D
-    let routeCoordinates: [CLLocationCoordinate2D]
+    var routeCoordinates: [CLLocationCoordinate2D]
+    @Binding var mapView: MKMapView
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -18,7 +19,6 @@ struct MapView: UIViewRepresentable {
         return mapView
     }
 
-    
     func updateUIView(_ uiView: MKMapView, context: Context) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -32,19 +32,6 @@ struct MapView: UIViewRepresentable {
         uiView.addOverlay(polyline)
     }
 
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: CarAnnotationView.identifier)
-        
-        if annotationView == nil {
-            annotationView = CarAnnotationView(annotation: annotation, reuseIdentifier: CarAnnotationView.identifier)
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        return annotationView
-    }
-
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
@@ -55,9 +42,20 @@ struct MapView: UIViewRepresentable {
         init(_ parent: MapView) {
             self.parent = parent
         }
+
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: CarAnnotationView.identifier)
+            
+            if annotationView == nil {
+                annotationView = CarAnnotationView(annotation: annotation, reuseIdentifier: CarAnnotationView.identifier)
+            } else {
+                annotationView?.annotation = annotation
+            }
+            
+            return annotationView
+        }
     }
 }
-
 
 class CarAnnotationView: MKAnnotationView {
     static let identifier = "CarAnnotationView"
