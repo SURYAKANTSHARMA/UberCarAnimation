@@ -35,6 +35,11 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         carAnimator = CarAnimator(mapView: mapView)
     }
     
+    func angleInDegrees() -> Double {
+        guard let previousCoordinate = previousCoordinate else { return 0 }
+        return previousCoordinate.bearing(to: currentCoordinate)
+    }
+    
     func setupLocationTracking() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()

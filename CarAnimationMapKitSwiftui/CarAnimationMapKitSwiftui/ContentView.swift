@@ -16,18 +16,17 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            MapView(coordinate: $viewModel.currentCoordinate,
-                    routeCoordinates: viewModel.routeCoordinates,
-                    mapView: $mapView)
-                .edgesIgnoringSafeArea(.all)
-                .frame(maxWidth: .infinity, maxHeight: .infinity) // Make sure the map view fills the screen
-                .onAppear {
-                    viewModel.setupLocationTracking()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.viewModel.setMapView(mapView)
-                    }
+            Map(initialPosition: .userLocation(fallback: .automatic)) {
+                Annotation("car", coordinate: viewModel.currentCoordinate) {
+                    Image(.car)
+                        .rotationEffect(.degrees(viewModel.angleInDegrees()))
                 }
-            
+            } .edgesIgnoringSafeArea(.all)
+              .frame(maxWidth: .infinity, maxHeight: .infinity) // Make sure the map view fills the screen
+              .onAppear {
+                    viewModel.setupLocationTracking()
+                    
+                }
             VStack {
                 Spacer()
                 HStack {
@@ -62,9 +61,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
 #Preview {
     ContentView()
 }
