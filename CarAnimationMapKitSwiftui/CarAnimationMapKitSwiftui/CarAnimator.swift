@@ -22,28 +22,28 @@ class CarAnimator {
             return
         }
         
+        
         let source = carAnnotation.coordinate
         
-        // Keep Rotation Short
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        CATransaction.setCompletionBlock({
-            // you can do something here
+        UIView.animate(withDuration: 0.7, animations: {
+            // Rotate the marker to match the bearing
+//            var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: CarAnnotationView.identifier)
+//            let annotation = CarAnnotation(coordinate: destination)
+//
+//            if annotationView == nil {
+//                annotationView = CarAnnotationView(annotation: annotation, reuseIdentifier: CarAnnotationView.identifier)
+//            } else {
+//                annotationView?.annotation = annotation
+//            }
+//            carAnnotationView.annotation = annotation
+            let angle = source.bearing(to: destination)
+            carAnnotationView.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         })
-        carAnnotationView.transform = CGAffineTransform(rotationAngle: CGFloat(source.bearing(to: destination)))
-        carAnnotationView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        CATransaction.commit()
-        
-        // Movement
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        carAnnotation.coordinate = destination
         
         // Center Map View
         let region = MKCoordinateRegion(center: destination, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
         
-        CATransaction.commit()
     }
     
     func pauseLayer(layer: CALayer) {
@@ -60,6 +60,8 @@ class CarAnimator {
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         layer.beginTime = timeSincePause
     }
+    
+
 }
 
 class CarAnnotation: NSObject, MKAnnotation {

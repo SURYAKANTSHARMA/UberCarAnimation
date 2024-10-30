@@ -20,9 +20,12 @@ struct ContentView: View {
                     routeCoordinates: viewModel.routeCoordinates,
                     mapView: $mapView)
                 .edgesIgnoringSafeArea(.all)
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // Make sure the map view fills the screen
                 .onAppear {
                     viewModel.setupLocationTracking()
-                    viewModel.setMapView(mapView)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.viewModel.setMapView(mapView)
+                    }
                 }
             
             VStack {
@@ -50,6 +53,12 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear {
+                    // Optional: Debugging to print mapView frame
+                    DispatchQueue.main.async {
+                        print("MapView Frame: \(mapView.frame)")
+                    }
+                }
     }
 }
 

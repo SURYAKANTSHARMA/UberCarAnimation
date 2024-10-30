@@ -57,14 +57,51 @@ struct MapView: UIViewRepresentable {
     }
 }
 
+import MapKit
+
 class CarAnnotationView: MKAnnotationView {
     static let identifier = "CarAnnotationView"
 
     override var annotation: MKAnnotation? {
         willSet {
             guard let _ = newValue else { return }
-
-            image = UIImage(named: "car")
+            image = UIImage(named: "car") // Set car image
         }
+    }
+    
+    // MARK: - Animate Car Movement
+    func animateCarMovement(from oldCoordinate: CLLocationCoordinate2D, to newCoordinate: CLLocationCoordinate2D) {
+        let bearing = calculateBearing(from: oldCoordinate, to: newCoordinate) // Calculate angle
+        
+        // Animate the car's movement and rotation
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseInOut], animations: {
+            // Rotate the car to the correct angle
+            self.transform = CGAffineTransform(rotationAngle: CGFloat(bearing))
+            
+            // Move the car to the new position on the map
+            if let mapView = self.superview as? MKMapView {
+                self.center = mapView.convert(newCoordinate, toPointTo: mapView)
+            }
+        })
+    }
+
+    // MARK: - Calculate Bearing (Angle)
+    private func calculateBearing(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CGFloat {
+        let fromLat = degreesToRadians(degrees: from.latitude)
+        let fromLng = degreesToRadians(degrees: from.longitude)
+        let toLat = degreesToRadians(degrees: to.latitude)
+        let toLng = degreesToRadians(degrees: to.longitude)
+        
+        let deltaLng = toLng - fromLng
+        let y = sin(deltaLng) * cos(toLat)
+        let x = cos(fromLat) * sin(toLat) - sin(fromLat) * cos(toLat) * cos(deltaLng)
+        let radiansBearing = atan2(y, x)
+        
+        return CGFloat(radiansBearing)
+    }
+
+    // Helper function to convert degrees to radians
+    private func degreesToRadians(degrees: Double) -> Double {
+        return degrees * .pi / 180
     }
 }
