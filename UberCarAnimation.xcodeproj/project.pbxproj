@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		9A32E78121A40A9C00D9D510 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E78021A40A9C00D9D510 /* LocationTracker.swift */; };
 		9A3E6B2C21A2BF0700DC2839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */; };
 		9A3E6B2E21A2BF0700DC2839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E6B2D21A2BF0700DC2839 /* ViewController.swift */; };
-		9A3E6B3121A2BF0700DC2839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B2F21A2BF0700DC2839 /* Main.storyboard */; };
 		9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */; };
 		9A3E6B3621A2BF0900DC2839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */; };
 		9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9A7291D52211896500DDDADD /* mapstogpx20190207_115833.gpx */; };
@@ -45,7 +44,6 @@
 		9A3E6B2821A2BF0700DC2839 /* UberCarAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCarAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A3E6B2D21A2BF0700DC2839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A3E6B3021A2BF0700DC2839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A3E6B3221A2BF0900DC2839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A3E6B3521A2BF0900DC2839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A3E6B3721A2BF0900DC2839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				9A32E78021A40A9C00D9D510 /* LocationTracker.swift */,
 				9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */,
 				9A3E6B2D21A2BF0700DC2839 /* ViewController.swift */,
-				9A3E6B2F21A2BF0700DC2839 /* Main.storyboard */,
 				85F321A5233FC767007261C6 /* keys.swift */,
 				85F321A9233FC8C8007261C6 /* Resources */,
 			);
@@ -246,7 +243,6 @@
 				9A7291D62211896500DDDADD /* mapstogpx20190207_115833.gpx in Resources */,
 				9A3E6B3321A2BF0900DC2839 /* Assets.xcassets in Resources */,
 				D0BA7ACB23537BF3009F71EE /* mapStyle2.json in Resources */,
-				9A3E6B3121A2BF0700DC2839 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,14 +323,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9A3E6B2F21A2BF0700DC2839 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A3E6B3021A2BF0700DC2839 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9A3E6B3421A2BF0900DC2839 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

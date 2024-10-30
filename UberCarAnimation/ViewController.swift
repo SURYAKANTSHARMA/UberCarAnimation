@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     
     // MARK :- Variables
     private var myLocationMarker: GMSMarker!
-    @IBOutlet weak var mapView: GMSMapView!
+    lazy var mapView: GMSMapView = {
+        let mapView = GMSMapView()
+        return mapView
+    }()
     private var carAnimator: CarAnimator!
     private var isStopped = false {
         didSet {
@@ -25,6 +28,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.frame = view.bounds
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(mapView)
+        
 		configureMapStyle()
         mapView.drawPath(GMSMapView.pathString)
         addButtons()

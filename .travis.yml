@@ -1,5 +1,5 @@
-osx_image: xcode11
+osx_image: xcode16
 language: swift
 script:
-  - xcodebuild clean build test -workspace UberCarAnimation.xcworkspace -scheme UberCarAnimation -destination 'platform=iOS Simulator,OS=13.0,name=iPhone 8' ONLY_ACTIVE_ARCH=YES
+  - xcodebuild clean build test -workspace UberCarAnimation.xcworkspace -scheme UberCarAnimation -destination 'platform=iOS Simulator,OS=13.0,name=iPhone 15' ONLY_ACTIVE_ARCH=YES
 
