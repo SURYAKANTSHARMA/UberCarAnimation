@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Map(initialPosition: .userLocation(fallback: .automatic)) {
+            Map {
                 Annotation("", coordinate: viewModel.currentCoordinate) {
                     Image(.car)
                         .rotationEffect(.degrees(viewModel.angleInDegrees()))
