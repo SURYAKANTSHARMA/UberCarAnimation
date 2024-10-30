@@ -12,9 +12,7 @@
 		1880F5D32C5DFFB60014D3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1880F5D22C5DFFB60014D3AB /* Assets.xcassets */; };
 		1880F5D62C5DFFB60014D3AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1880F5D52C5DFFB60014D3AB /* Preview Assets.xcassets */; };
 		1880F5DD2C5E02670014D3AB /* mapstogpx20190207_115833.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1880F5DC2C5E02670014D3AB /* mapstogpx20190207_115833.gpx */; };
-		1880F5DF2C5E07FC0014D3AB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880F5DE2C5E07FC0014D3AB /* MapView.swift */; };
 		1880F5E12C5E08240014D3AB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880F5E02C5E08240014D3AB /* MapViewModel.swift */; };
-		1880F5E32C5E08450014D3AB /* CarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880F5E22C5E08450014D3AB /* CarAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +22,7 @@
 		1880F5D22C5DFFB60014D3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1880F5D52C5DFFB60014D3AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1880F5DC2C5E02670014D3AB /* mapstogpx20190207_115833.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = mapstogpx20190207_115833.gpx; path = ../../UberCarAnimation/Resources/mapstogpx20190207_115833.gpx; sourceTree = "<group>"; };
-		1880F5DE2C5E07FC0014D3AB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1880F5E02C5E08240014D3AB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		1880F5E22C5E08450014D3AB /* CarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +57,7 @@
 			children = (
 				1880F5CE2C5DFFB50014D3AB /* CarAnimationMapKitSwiftuiApp.swift */,
 				1880F5D02C5DFFB50014D3AB /* ContentView.swift */,
-				1880F5DE2C5E07FC0014D3AB /* MapView.swift */,
 				1880F5E02C5E08240014D3AB /* MapViewModel.swift */,
-				1880F5E22C5E08450014D3AB /* CarAnimator.swift */,
 				1880F5DC2C5E02670014D3AB /* mapstogpx20190207_115833.gpx */,
 				1880F5D22C5DFFB60014D3AB /* Assets.xcassets */,
 				1880F5D42C5DFFB60014D3AB /* Preview Content */,
@@ -150,9 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1880F5E32C5E08450014D3AB /* CarAnimator.swift in Sources */,
 				1880F5D12C5DFFB50014D3AB /* ContentView.swift in Sources */,
-				1880F5DF2C5E07FC0014D3AB /* MapView.swift in Sources */,
 				1880F5CF2C5DFFB50014D3AB /* CarAnimationMapKitSwiftuiApp.swift in Sources */,
 				1880F5E12C5E08240014D3AB /* MapViewModel.swift in Sources */,
 			);
