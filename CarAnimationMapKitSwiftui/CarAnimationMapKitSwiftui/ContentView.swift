@@ -12,18 +12,25 @@ import CoreLocation
 struct ContentView: View {
     
     @StateObject private var viewModel = MapViewModel()
-
+    @State private var route: MKRoute?
+    
     var body: some View {
         ZStack {
             Map(initialPosition: .userLocation(fallback: .automatic)) {
-                Annotation("car", coordinate: viewModel.currentCoordinate) {
+                Annotation("", coordinate: viewModel.currentCoordinate) {
                     Image(.car)
                         .rotationEffect(.degrees(viewModel.angleInDegrees()))
                 }
-            }.edgesIgnoringSafeArea(.all)
+                if let route {
+                    MapPolyline(route)
+                        .stroke(.blue, lineWidth: 5)
+                }
+            }.mapStyle(.standard)
+             .edgesIgnoringSafeArea(.all)
              .frame(maxWidth: .infinity, maxHeight: .infinity)
              .onAppear {
                     viewModel.setupLocationTracking()
+                    getDirections()
                 }
             VStack {
                 Spacer()
@@ -35,6 +42,8 @@ struct ContentView: View {
             }
         }
     }
+    
+    
 }
 
 #Preview {
@@ -64,4 +73,21 @@ extension ContentView {
                 .foregroundColor(.red)
         }
     }
+    
+    
+    func getDirections() {
+        route = nil
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 30.6751951, longitude: 76.7401675)))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 30.6444945, longitude: 76.7247927)))
+        
+        Task {
+            let directions = MKDirections(request: request)
+            let response = try? await directions.calculate()
+            withAnimation {
+                route = response?.routes.first
+            }
+        }
+    }
+
 }
