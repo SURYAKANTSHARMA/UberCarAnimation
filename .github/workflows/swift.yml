@@ -25,14 +25,14 @@ jobs:
       run: xcodebuild -version
 
     - name: Navigate to UIKit Google Maps project
-      run: cd UberCarAnimation
+      run: cd UberCarAnimation # This step is kept for context, but subsequent steps run from repo root
 
     - name: Install CocoaPods dependencies
-      working-directory: ./UberCarAnimation # Ensure this is the correct path to Podfile
+      # working-directory removed, command runs from repo root
       run: pod install --repo-update
 
     - name: Build UIKit Google Maps project
-      working-directory: ./UberCarAnimation
+      # working-directory removed, command runs from repo root
       run: |
         xcodebuild build \
           -workspace UberCarAnimation.xcworkspace \
@@ -43,7 +43,7 @@ jobs:
           ONLY_ACTIVE_ARCH=NO
 
     - name: Test UIKit Google Maps project
-      working-directory: ./UberCarAnimation
+      # working-directory removed, command runs from repo root
       run: |
         xcodebuild test \
           -workspace UberCarAnimation.xcworkspace \
@@ -59,9 +59,7 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: uikit-googlemaps # Flag to identify this project's coverage
-        # The Codecov action should automatically find .xcresult bundles
-        # and process them. Specify working-directory if needed, but often not.
-        # working-directory: ./UberCarAnimation 
+        # working-directory removed, Codecov action will search from repo root
         # fail_ci_if_error: true # Optional: fail CI if Codecov upload fails
 
   build_and_test_swiftui_mapkit:
