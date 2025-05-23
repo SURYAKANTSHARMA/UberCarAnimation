@@ -1,19 +1,162 @@
-# This workflow will build a Swift project
+# This workflow will build and test Swift projects
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-name: Swift
+name: CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main" ] # Trigger on push to master or main
   pull_request:
-    branches: [ "master" ]
-jobs:
-  build:
+    branches: [ "master", "main" ] # Trigger on PRs targeting master or main
 
-    runs-on: macos-latest
+jobs:
+  build_and_test_uikit_googlemaps:
+    name: Build & Test (UIKit - Google Maps)
+    runs-on: macos-13 # Using macos-13 for more specific Xcode versions if needed. macos-latest is also an option.
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build app
-      run: xcodebuild clean build -workspace UberCarAnimation.xcworkspace -scheme UberCarAnimation -destination 'platform=iOS Simulator,name=iPhone 14' ONLY_ACTIVE_ARCH=YES
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Select Xcode 15.3
+      run: sudo xcode-select -s /Applications/Xcode_15.3.app/Contents/Developer
+
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    - name: Navigate to UIKit Google Maps project
+      run: cd UberCarAnimation
+
+    - name: Install CocoaPods dependencies
+      working-directory: ./UberCarAnimation # Ensure this is the correct path to Podfile
+      run: pod install --repo-update
+
+    - name: Build UIKit Google Maps project
+      working-directory: ./UberCarAnimation
+      run: |
+        xcodebuild build \
+          -workspace UberCarAnimation.xcworkspace \
+          -scheme UberCarAnimation \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+
+    - name: Test UIKit Google Maps project
+      working-directory: ./UberCarAnimation
+      run: |
+        xcodebuild test \
+          -workspace UberCarAnimation.xcworkspace \
+          -scheme UberCarAnimation \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          -enableCodeCoverage YES \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+    
+    - name: Upload coverage to Codecov (UIKit - Google Maps)
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: uikit-googlemaps # Flag to identify this project's coverage
+        # The Codecov action should automatically find .xcresult bundles
+        # and process them. Specify working-directory if needed, but often not.
+        # working-directory: ./UberCarAnimation 
+        # fail_ci_if_error: true # Optional: fail CI if Codecov upload fails
+
+  build_and_test_swiftui_mapkit:
+    name: Build & Test (SwiftUI - MapKit)
+    runs-on: macos-13
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Select Xcode 15.3
+      run: sudo xcode-select -s /Applications/Xcode_15.3.app/Contents/Developer
+
+    - name: Show Xcode version
+      run: xcodebuild -version
+      
+    - name: Build SwiftUI MapKit project
+      working-directory: ./CarAnimationMapKitSwiftui # Navigate to project directory
+      run: |
+        xcodebuild build \
+          -project CarAnimationMapKitSwiftui.xcodeproj \
+          -scheme CarAnimationMapKitSwiftui \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+          
+    - name: Test SwiftUI MapKit project
+      working-directory: ./CarAnimationMapKitSwiftui # Navigate to project directory
+      run: |
+        xcodebuild test \
+          -project CarAnimationMapKitSwiftui.xcodeproj \
+          -scheme CarAnimationMapKitSwiftui \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          -enableCodeCoverage YES \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+
+    - name: Upload coverage to Codecov (SwiftUI - MapKit)
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: swiftui-mapkit
+        # working-directory: ./CarAnimationMapKitSwiftui
+        # fail_ci_if_error: true
+
+  build_and_test_swiftui_googlemaps:
+    name: Build & Test (SwiftUI - Google Maps)
+    runs-on: macos-13
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Select Xcode 15.3
+      run: sudo xcode-select -s /Applications/Xcode_15.3.app/Contents/Developer
+
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    - name: Navigate to SwiftUI Google Maps project
+      run: cd SwiftUIExample/UberCarSwiftUI
+
+    - name: Install CocoaPods dependencies
+      working-directory: ./SwiftUIExample/UberCarSwiftUI # Ensure this path is correct
+      run: pod install --repo-update
+
+    - name: Build SwiftUI Google Maps project
+      working-directory: ./SwiftUIExample/UberCarSwiftUI
+      run: |
+        xcodebuild build \
+          -workspace UberCarSwiftUI.xcworkspace \
+          -scheme UberCarSwiftUI \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+          
+    - name: Test SwiftUI Google Maps project
+      working-directory: ./SwiftUIExample/UberCarSwiftUI
+      run: |
+        xcodebuild test \
+          -workspace UberCarSwiftUI.xcworkspace \
+          -scheme UberCarSwiftUI \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+          -enableCodeCoverage YES \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=NO
+
+    - name: Upload coverage to Codecov (SwiftUI - Google Maps)
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: swiftui-googlemaps
+        # working-directory: ./SwiftUIExample/UberCarSwiftUI
+        # fail_ci_if_error: true

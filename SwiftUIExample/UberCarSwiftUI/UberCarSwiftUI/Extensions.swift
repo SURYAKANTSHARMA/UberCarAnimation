@@ -7,72 +7,146 @@
 //
 
 import GoogleMaps
+import UIKit // For UIColor, CGFloat
+import CoreLocation // For CLLocationCoordinate2D, CLLocation, CLLocationDistance
 
+// MARK: - GMSMapView Extension
 extension GMSMapView {
     
-    static let kPadding: CGFloat = 115
-    /*
-     Static path String for demoing purpose you will get actual path by direction  api for google for more https://console.cloud.google.com/apis/library/directions-backend.googleapis.com?filter=category:maps&id=c6b51d83-d721-458f-a259-fae6b0af35c5&project=ios-task
+    /**
+     A static encoded path string for demonstration purposes.
+     For actual applications, obtain path data using the Google Directions API.
+     More info: https://developers.google.com/maps/documentation/directions/start
      */
-    static let pathString: String = "_gfzDaiksMnGeF\\WaCmDyAyBRQJPxHlLdD~EjRrYzJvOzBlDd@K|F}DLGTAX?tHkFJIJX~HdRbKvVBHzBqAnAw@|GcEpDaClApCrBoAhHqEtAw@fC`Gx@`B|@xB^v@B@FAjA}@tNfMdGnFVPNBRG~AwAd@MfK}AJCH^RnAHZN?|Ag@"
+    static let demoEncodedPathString: String = "_gfzDaiksMnGeF\\WaCmDyAyBRQJPxHlLdD~EjRrYzJvOzBlDd@K|F}DLGTAX?tHkFJIJX~HdRbKvVBHzBqAnAw@|GcEpDaClApCrBoAhHqEtAw@fC`Gx@`B|@xB^v@B@FAjA}@tNfMdGnFVPNBRG~AwAd@MfK}AJCH^RnAHZN?|Ag@"
     
+    /**
+     Updates the map camera to center on a given location, optionally with a specific zoom level.
+     - Parameters:
+        - location: The `CLLocation` to center the map on.
+        - zoomLevel: An optional `Float` value for the zoom level. If nil, the map animates to the location with the current zoom.
+     */
     func updateMap(toLocation location: CLLocation, zoomLevel: Float? = nil) {
-        if let zoomLevel = zoomLevel {
-            let cameraUpdate = GMSCameraUpdate.setTarget(location.coordinate, zoom: zoomLevel)
-            animate(with: cameraUpdate)
+        if let newZoomLevel = zoomLevel {
+            let cameraUpdate = GMSCameraUpdate.setTarget(location.coordinate, zoom: newZoomLevel)
+            self.animate(with: cameraUpdate)
         } else {
-            animate(toLocation: location.coordinate)
+            self.animate(toLocation: location.coordinate)
         }
     }
+    
+    /**
+     Draws a polyline on the map from an encoded path string.
+     - Parameter encodedPathString: A `String` representing the encoded path.
+     */
     func drawPath(_ encodedPathString: String) {
+        // Use a CATransaction to ensure the path is drawn immediately without animation.
         CATransaction.begin()
-        CATransaction.setAnimationDuration(0.0)
-        let path = GMSPath(fromEncodedPath: encodedPathString)
-        let line = GMSPolyline(path: path)
-        line.strokeWidth = 4.0
-		line.strokeColor = UIColor.routeColor
-        line.isTappable = true
-        line.map = self
+        CATransaction.setAnimationDuration(0.0) // No animation for drawing the path itself
+        
+        guard let path = GMSPath(fromEncodedPath: encodedPathString) else {
+            #if DEBUG
+            print("GMSMapView.drawPath: Error - Could not create GMSPath from encoded string.")
+            #endif
+            CATransaction.commit()
+            return
+        }
+        
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 4.0
+        polyline.strokeColor = UIColor.routeColor // Assumes UIColor.routeColor is defined (see below)
+        polyline.isTappable = true // Example: make line tappable if needed for interaction
+        polyline.map = self
+        
         CATransaction.commit()
     }
 }
 
+// MARK: - UIColor Extension
 extension UIColor {
-	static var routeColor: UIColor {
-		guard let color = UIColor(named: "routeColor") else { return .black }
-		return color
-	}
-}
-
-extension CLLocationCoordinate2D {
-    
-    func bearing(to point: CLLocationCoordinate2D) -> Double {
-        func degreesToRadians(_ degrees: Double) -> Double { return degrees * Double.pi / 180.0 }
-        func radiansToDegrees(_ radians: Double) -> Double { return radians * 180.0 / Double.pi }
-        
-        let fromLatitude = degreesToRadians(latitude)
-        let fromLongitude = degreesToRadians(longitude)
-        
-        let toLatitude = degreesToRadians(point.latitude)
-        let toLongitude = degreesToRadians(point.longitude)
-        
-        let differenceLongitude = toLongitude - fromLongitude
-        
-        let y = sin(differenceLongitude) * cos(toLatitude)
-        let x = cos(fromLatitude) * sin(toLatitude) - sin(fromLatitude) * cos(toLatitude) * cos(differenceLongitude)
-        let radiansBearing = atan2(y, x);
-        let degree = radiansToDegrees(radiansBearing)
-        return (degree >= 0) ? degree : (360 + degree)
+    /// A custom color for routes, loaded from Asset Catalog. Falls back to black if not found.
+    static var routeColor: UIColor {
+        // Ensure "routeColor" is defined in your Asset Catalog.
+        guard let color = UIColor(named: "routeColor") else {
+            #if DEBUG
+            print("UIColor.routeColor: Warning - 'routeColor' not found in Asset Catalog. Falling back to UIColor.black.")
+            #endif
+            return .black
+        }
+        return color
     }
 }
 
-extension CLLocationCoordinate2D : Equatable{
+// MARK: - CLLocationCoordinate2D Extensions
+extension CLLocationCoordinate2D {
+    
+    /// Calculates the bearing (direction) in degrees from the current coordinate to another coordinate.
+    /// The bearing is normalized to a 0-360 degree range.
+    /// - Parameter destination: The `CLLocationCoordinate2D` of the destination.
+    /// - Returns: A `Double` representing the bearing in degrees.
+    func bearing(to destination: CLLocationCoordinate2D) -> Double {
+        func degreesToRadians(_ degrees: Double) -> Double { degrees * .pi / 180.0 }
+        func radiansToDegrees(_ radians: Double) -> Double { radians * 180.0 / .pi }
+        
+        let lat1 = degreesToRadians(latitude)
+        let lon1 = degreesToRadians(longitude)
+        
+        let lat2 = degreesToRadians(destination.latitude)
+        let lon2 = degreesToRadians(destination.longitude)
+        
+        let deltaLon = lon2 - lon1
+        
+        let y = sin(deltaLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(deltaLon)
+        let radiansBearing = atan2(y, x)
+        
+        let degreesBearing = radiansToDegrees(radiansBearing)
+        // Normalize to 0-360 range
+        return (degreesBearing >= 0) ? degreesBearing : (degreesBearing + 360.0)
+    }
+}
+
+// MARK: - CLLocationCoordinate2D Equatable Conformance
+extension CLLocationCoordinate2D: Equatable {
+    /// Compares two `CLLocationCoordinate2D` instances for equality based on their latitude and longitude.
+    /// - Parameters:
+    ///   - lhs: The left-hand side `CLLocationCoordinate2D`.
+    ///   - rhs: The right-hand side `CLLocationCoordinate2D`.
+    /// - Returns: `true` if the coordinates are equal, `false` otherwise.
     public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
-    //distance in meters, as explained in CLLoactionDistance definition
-    func distance(from: CLLocationCoordinate2D) -> CLLocationDistance {
-        let destination=CLLocation(latitude:from.latitude,longitude:from.longitude)
-        return CLLocation(latitude: latitude, longitude: longitude).distance(from: destination)
+}
+
+// MARK: - Double Extensions for Angle Conversion
+// These could be fileprivate if only used within this file's extensions,
+// or internal (default) / public if used more broadly.
+extension Double {
+    /// Converts degrees to radians.
+    func toRadians() -> Double {
+        return self * .pi / 180.0
+    }
+    
+    /// Converts radians to degrees.
+    func toDegrees() -> Double {
+        return self * 180.0 / .pi
+    }
+}
+
+// MARK: - CLLocation Extension (example, if needed for distance)
+// Note: CLLocationCoordinate2D.distance(from:) was removed to avoid confusion
+// with CLLocation.distance(from:). If a helper on CLLocationCoordinate2D is desired for this,
+// it should be distinct or use CLLocation internally as before.
+// The original `distance(from:)` on `CLLocationCoordinate2D` was fine, but let's ensure clarity.
+// Re-adding it here with a slightly different parameter name for clarity if it's used.
+
+extension CLLocationCoordinate2D {
+    /// Calculates the distance in meters from the current coordinate to another coordinate.
+    /// - Parameter otherCoordinate: The `CLLocationCoordinate2D` to calculate the distance to.
+    /// - Returns: A `CLLocationDistance` (Double) representing the distance in meters.
+    func distance(to otherCoordinate: CLLocationCoordinate2D) -> CLLocationDistance {
+        let-      destinationLocation = CLLocation(latitude: otherCoordinate.latitude, longitude: otherCoordinate.longitude)
+        let currentLocation = CLLocation(latitude: latitude, longitude: longitude)
+        return currentLocation.distance(from: destinationLocation)
     }
 }

@@ -6,17 +6,26 @@
 //
 
 import SwiftUI
-import GoogleMaps
-let ADD_YOUR_GOOGLE_API_KEY = "AIzaSyCd66Czq6Ezt72pOAKe27rTgM_PCVZDl0U"
+import GoogleMaps // Ensure GoogleMaps is imported
 
 @main
 struct UberCarSwiftUIApp: App {
-    @StateObject var viewModel = MapContentViewModel()
+    // Instantiate the ViewModel that will be shared
+    @StateObject private var mapContentViewModel = MapContentViewModel()
+
+    init() {
+        // Provide the Google Maps API key at app launch.
+        // 'googleMapsAPIKey' should be defined in a separate 'keys.swift' file (which should be in .gitignore).
+        // Example: let googleMapsAPIKey = "YOUR_ACTUAL_API_KEY"
+        GMSServices.provideAPIKey(googleMapsAPIKey)
+        print("Google Maps API Key Provided.")
+    }
 
     var body: some Scene {
         WindowGroup {
-            MapContentView(locations: $viewModel.lastTwoLocations)
-                .environmentObject(viewModel)
+            // Pass the binding to the refactored property name in MapContentViewModel
+            MapContentView(locationPair: $mapContentViewModel.locationPair)
+                .environmentObject(mapContentViewModel)
         }
     }
 }

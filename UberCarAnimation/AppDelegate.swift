@@ -9,15 +9,18 @@
 import UIKit
 import GoogleMaps
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@main // Modern replacement for @UIApplicationMain
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        /// For more info visit https://developers.google.com/maps/documentation/ios-sdk/get-api-key#get_key
-        GMSServices.provideAPIKey(ADD_YOUR_GOOGLE_API_KEY)
+        
+        // Provide Google Maps API Key
+        // Ensure `googleMapsAPIKey` is defined, ideally in a separate, gitignored file (e.g., keys.swift)
+        GMSServices.provideAPIKey(googleMapsAPIKey) 
+        
+        // Setup the main window
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()

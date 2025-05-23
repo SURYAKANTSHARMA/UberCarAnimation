@@ -27,124 +27,140 @@
 import Foundation
 import CoreLocation
 
-typealias LocateMeCallback = (_ location: CLLocation?) -> Void
+typealias LocationUpdateCallback = (_ location: CLLocation?) -> Void
 
-/*
- LocationTracker to track the user in while navigating from one place to other and store new locations in locations array.
- **/
-class LocationTracker: NSObject {
+/**
+ LocationTracker to track the user's location and manage location services authorization.
+ */
+final class LocationTracker: NSObject {
     
     static let shared = LocationTracker()
     
-    var lastLocation: CLLocation?
-    var locations: [CLLocation] = []
-    var previousLocation: CLLocation?
+    private(set) var lastLocation: CLLocation?
+    private(set) var locations: [CLLocation] = []
+    private(set) var previousLocation: CLLocation?
     
-    var locationManager: CLLocationManager = {
-       let locationManager = CLLocationManager()
-       locationManager.activityType = .automotiveNavigation
-       locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-       locationManager.distanceFilter = 10
-       return locationManager
+    private lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.activityType = .automotiveNavigation
+        manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        manager.distanceFilter = 10 // Only update if distance moved is > 10 meters
+        manager.delegate = self
+        return manager
     }()
     
-    var locateMeCallback: LocateMeCallback?
-   
+    private var locationUpdateCallback: LocationUpdateCallback?
+    
     var isCurrentLocationAvailable: Bool {
-        if lastLocation != nil, lastLocation!.timestamp.timeIntervalSinceNow < 10 {
-          return true
-        }
-        return false
+        guard let lastLoc = lastLocation else { return false }
+        // Location is considered current if it's from the last 60 seconds and has some accuracy.
+        return abs(lastLoc.timestamp.timeIntervalSinceNow) < 60 && lastLoc.horizontalAccuracy > 0
     }
     
-    func enableLocationServices() {
-        locationManager.delegate = self
-        switch locationManager.authorizationStatus {
-        case .notDetermined:
-            // Request when-in-use authorization initially
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            // Disable location features
-            print("Fail permission to get current location of user")
-        case .authorizedWhenInUse:
-            // Enable basic location features
-            enableMyWhenInUseFeatures()
-       case .authorizedAlways:
-            // Enable any of your app's location features
-            enableMyAlwaysFeatures()
-        @unknown default:
-            break 
-        }
+    private override init() {
+        super.init()
     }
     
-    func enableMyWhenInUseFeatures() {
-       locationManager.startUpdatingLocation()
-       locationManager.delegate = self
+    func requestLocationAccess() {
+        locationManager.delegate = self // Ensure delegate is set before requesting authorization
+        let currentStatus = locationManager.authorizationStatus
         
-       escalateLocationServiceAuthorization()
-    }
-    
-    func escalateLocationServiceAuthorization() {
-        // Escalate only when the authorization is set to when-in-use
-        if locationManager.authorizationStatus == .authorizedWhenInUse {
-            locationManager.requestAlwaysAuthorization()
+        if currentStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else if currentStatus == .authorizedWhenInUse {
+            // If already authorized for WhenInUse, consider requesting Always authorization
+            // This depends on the app's specific needs.
+             locationManager.requestAlwaysAuthorization()
+        } else if currentStatus == .denied || currentStatus == .restricted {
+            // Handle cases where permission is denied or restricted, e.g., guide user to settings.
+            print("Location access denied or restricted.")
+            // Optionally, invoke a callback to inform the UI.
+        } else if currentStatus == .authorizedAlways {
+            startUpdatingLocation()
         }
     }
     
-    func enableMyAlwaysFeatures() {
-       locationManager.allowsBackgroundLocationUpdates = true
-       locationManager.pausesLocationUpdatesAutomatically = true
-       locationManager.startUpdatingLocation()
-       locationManager.delegate = self
-    }
-    
-    func locateMeOnLocationChange(callback: @escaping LocateMeCallback) {
-        self.locateMeCallback = callback
-        if lastLocation == nil {
-            enableLocationServices()
+    private func startUpdatingLocationBasedOnAuth() {
+        let status = locationManager.authorizationStatus
+        if status == .authorizedAlways {
+            enableBackgroundFeatures()
+            locationManager.startUpdatingLocation()
+        } else if status == .authorizedWhenInUse {
+            disableBackgroundFeatures() // Ensure background features are off for WhenInUse
+            locationManager.startUpdatingLocation()
         } else {
-           callback(lastLocation)
+            print("Location updates cannot start due to authorization status: \(status)")
         }
     }
     
-    func startTracking() {
-         enableLocationServices()
+    private func enableBackgroundFeatures() {
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false // More continuous tracking if needed
+    }
+
+    private func disableBackgroundFeatures() {
+        locationManager.allowsBackgroundLocationUpdates = false
+    }
+
+    func startTracking(callback: @escaping LocationUpdateCallback) {
+        self.locationUpdateCallback = callback
+        requestLocationAccess() // This will trigger didChangeAuthorization if status changes or start updates if already authorized.
     }
     
     func stopTracking() {
-        
+        locationManager.stopUpdatingLocation()
+        locationUpdateCallback = nil // Clear callback when tracking stops
+        print("Location tracking stopped.")
     }
-    private override init() {}
 }
 
 // MARK: - CLLocationManagerDelegate
 extension LocationTracker: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations updatedLocations: [CLLocation]) {
+        guard let newLocation = updatedLocations.last else { return }
         
-        guard let location = locations.first else { return }
-        
-        guard location.timestamp.timeIntervalSinceNow < 10 || location.horizontalAccuracy > 0 else {
-            print("invalid location received")
+        // Validate location: recent (e.g., within last 15 seconds) and valid accuracy
+        let locationAge = abs(newLocation.timestamp.timeIntervalSinceNow)
+        guard locationAge < 15 && newLocation.horizontalAccuracy > 0 else {
+            #if DEBUG
+            print("Skipping invalid or old location: \(newLocation)")
+            #endif
             return
         }
         
-        self.locations.append(location)
-        previousLocation = lastLocation
-        lastLocation = location
+        self.previousLocation = self.lastLocation
+        self.lastLocation = newLocation
+        self.locations.append(newLocation)
         
-        print("location = \(location.coordinate.latitude) \(location.coordinate.longitude)")
-        locateMeCallback?(location)
-        
+        #if DEBUG
+        print("Location updated: (\(newLocation.coordinate.latitude), \(newLocation.coordinate.longitude))")
+        #endif
+        locationUpdateCallback?(newLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
+        print("Location manager failed with error: \(error.localizedDescription)")
+        // Optionally, inform the user or retry.
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        enableLocationServices()
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("Location authorization status changed to: \(manager.authorizationStatus.rawValue)")
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            startUpdatingLocationBasedOnAuth()
+        case .denied, .restricted:
+            // Handle denial or restriction, e.g., update UI, show alert.
+            print("Location access was denied or restricted.")
+            // Potentially call stopTracking() or a specific handler.
+            stopTracking() // Stop updates if authorization is revoked.
+        case .notDetermined:
+            // This case should ideally be handled by the initial requestLocationAccess call.
+            print("Location authorization is not determined.")
+        @unknown default:
+            print("Unknown location authorization status.")
+            // Handle future cases.
+        }
     }
 }
 

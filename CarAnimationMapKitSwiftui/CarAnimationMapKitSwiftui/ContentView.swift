@@ -13,25 +13,49 @@ struct ContentView: View {
     
     @StateObject private var viewModel = MapViewModel()
     @State private var route: MKRoute?
+    // Default region to show when the map first appears or when currentCoordinate is (0,0)
+    @State private var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 30.6751951, longitude: 76.7401675), // Default center
+        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    )
     
     var body: some View {
         ZStack {
-            Map {
-                Annotation("", coordinate: viewModel.currentCoordinate) {
-                    Image(.car)
-                        .rotationEffect(.degrees(viewModel.angleInDegrees()))
+            Map(coordinateRegion: $mapRegion, interactionModes: .all) {
+                // Only show annotation if location services are enabled and coordinate is valid
+                if viewModel.isLocationServicesEnabled, 
+                   viewModel.currentCoordinate.latitude != 0 || viewModel.currentCoordinate.longitude != 0 {
+                    Annotation("", coordinate: viewModel.currentCoordinate) {
+                        Image(.car) // Assumes "car" image is in Assets
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 44, height: 44) // Give it a reasonable size
+                            .rotationEffect(.degrees(viewModel.heading))
+                    }
                 }
+                
                 if let route {
                     MapPolyline(route)
                         .stroke(.blue, lineWidth: 5)
                 }
-            }.mapStyle(.standard)
-             .edgesIgnoringSafeArea(.all)
-             .frame(maxWidth: .infinity, maxHeight: .infinity)
-             .onAppear {
-                    viewModel.setupLocationTracking()
-                    getDirections()
+            }
+            .mapStyle(.standard)
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                viewModel.startLocationUpdates()
+                getDirections()
+            }
+            .onChange(of: viewModel.currentCoordinate) { newCoordinate in
+                // Update map region when currentCoordinate changes, only if it's a valid coordinate
+                if newCoordinate.latitude != 0 || newCoordinate.longitude != 0 {
+                    withAnimation {
+                        mapRegion.center = newCoordinate
+                        // Optionally adjust span, or keep it user-controlled after initial set
+                        mapRegion.span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02) // Zoom in a bit
+                    }
                 }
+            }
+            
             VStack {
                 Spacer()
                 HStack {
@@ -53,7 +77,7 @@ struct ContentView: View {
 extension ContentView {
     var playButton: some View {
         Button(action: {
-            viewModel.startAnimation()
+            viewModel.startLocationUpdates()
         }) {
             Image(systemName: "play.circle.fill")
                 .resizable()
@@ -65,7 +89,7 @@ extension ContentView {
     
     var pauseButton: some View {
         Button(action: {
-            viewModel.stopAnimation()
+            viewModel.stopLocationUpdates()
         }) {
             Image(systemName: "pause.circle.fill")
                 .resizable()
