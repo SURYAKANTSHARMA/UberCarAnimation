@@ -26,41 +26,61 @@
 
 import Foundation
 import GoogleMaps
+import UIKit
 
-struct CarAnimator {
-    let carMarker: GMSMarker
-    let mapView: GMSMapView
+final class CarAnimator {
+    private let carMarker: GMSMarker
+    private let mapView: GMSMapView
     
-    func animate(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
-        // Keep Rotation Short
+    // Constants for animation durations
+    private enum AnimationDuration {
+        static let rotation: CFTimeInterval = 1.0
+        static let movement: CFTimeInterval = 1.0
+    }
+
+    init(carMarker: GMSMarker, mapView: GMSMapView) {
+        self.carMarker = carMarker
+        self.mapView = mapView
+    }
+    
+    func animate(from sourceCoordinate: CLLocationCoordinate2D, to destinationCoordinate: CLLocationCoordinate2D) {
+        // Animate car rotation
         CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        CATransaction.setCompletionBlock({
-            // you can do something here
-        })
-        carMarker.rotation = source.bearing(to: destination)
-        carMarker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
+        CATransaction.setAnimationDuration(AnimationDuration.rotation)
+        CATransaction.setCompletionBlock {
+            // Optional: Add completion logic here if needed in the future
+        }
+        carMarker.rotation = sourceCoordinate.bearing(to: destinationCoordinate)
+        carMarker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
         CATransaction.commit()
         
-        // Movement
+        // Animate car movement
         CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        carMarker.position = destination
+        CATransaction.setAnimationDuration(AnimationDuration.movement)
+        carMarker.position = destinationCoordinate
         
-        // Center Map View
-        let camera = GMSCameraUpdate.setTarget(destination)
-        mapView.animate(with: camera)
+        // Center map view on the destination
+        let cameraUpdate = GMSCameraUpdate.setTarget(destinationCoordinate)
+        mapView.animate(with: cameraUpdate)
         
         CATransaction.commit()
     }
     
-    func pauseLayer(layer: CALayer) {
+    // Unused CALayer animation helper functions.
+    // These can be removed if not utilized elsewhere in the project.
+    // If they are intended for future use, they should be made private
+    // and potentially moved to a more appropriate utility class.
+    // Restoring these methods as they are used by ViewController.
+    // Consider making them public if CarAnimator is used by other classes,
+    // or keep them internal if only ViewController uses them directly.
+    
+    public func pauseLayer(_ layer: CALayer) {
         let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
     }
     
-    func resumeLayer(layer: CALayer) {
+    public func resumeLayer(_ layer: CALayer) {
         let pausedTime = layer.timeOffset
         layer.speed = 1.0
         layer.timeOffset = 0.0

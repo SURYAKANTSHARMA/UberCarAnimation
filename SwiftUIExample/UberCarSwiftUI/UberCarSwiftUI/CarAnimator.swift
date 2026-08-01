@@ -25,57 +25,100 @@
 //
 
 import Foundation
-import GoogleMaps
+import GoogleMaps // Assuming this project uses Google Maps SDK
+import UIKit // For CALayer, CGPoint, CGFloat
 
-class CarAnimator {
+final class CarAnimator {
     
-    internal init(carMarker: GMSMarker, mapView: GMSMapView) {
+    private let carMarker: GMSMarker
+    private let mapView: GMSMapView
+    
+    // Constants for animation durations
+    private enum AnimationDuration {
+        static let rotation: CFTimeInterval = 1.0
+        static let movement: CFTimeInterval = 1.0
+    }
+
+    init(carMarker: GMSMarker, mapView: GMSMapView) {
         self.carMarker = carMarker
         self.mapView = mapView
     }
     
-    let carMarker: GMSMarker
-    let mapView: GMSMapView
-    
-    func animate(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
-        // Keep Rotation Short
-        print("source \(source)")
-        print("destination \(destination)")
+    func animate(from sourceCoordinate: CLLocationCoordinate2D, to destinationCoordinate: CLLocationCoordinate2D) {
+        #if DEBUG
+        print("Animating car from \(sourceCoordinate) to \(destinationCoordinate)")
+        #endif
 
+        // Animate car rotation
         CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        CATransaction.setCompletionBlock({
-            // you can do something here
-        })
-        carMarker.rotation = source.bearing(to: destination)
-        carMarker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
+        CATransaction.setAnimationDuration(AnimationDuration.rotation)
+        // No specific completion logic needed for rotation, can remove the block if empty.
+        // CATransaction.setCompletionBlock { /* ... */ }
+        
+        // Assuming sourceCoordinate.bearing(to: destinationCoordinate) exists as an extension
+        carMarker.rotation = sourceCoordinate.bearing(to: destinationCoordinate)
+        carMarker.groundAnchor = CGPoint(x: 0.5, y: 0.5) // Center anchor
         CATransaction.commit()
         
-        // Movement
+        // Animate car movement
         CATransaction.begin()
-        CATransaction.setAnimationDuration(1)
-        carMarker.position = destination
+        CATransaction.setAnimationDuration(AnimationDuration.movement)
+        carMarker.position = destinationCoordinate
         
-        // Center Map View
-        let camera = GMSCameraUpdate.setTarget(destination)
-        mapView.animate(with: camera)
+        // Center map view on the destination
+        let cameraUpdate = GMSCameraUpdate.setTarget(destinationCoordinate)
+        mapView.animate(with: cameraUpdate)
         
         CATransaction.commit()
     }
     
-    func pauseLayer(layer: CALayer) {
+    /// Pauses the animation of the specified layer.
+    /// - Parameter layer: The `CALayer` whose animation needs to be paused.
+    func pauseLayer(_ layer: CALayer) {
         let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
     }
     
-    func resumeLayer(layer: CALayer) {
+    /// Resumes the animation of the specified layer.
+    /// - Parameter layer: The `CALayer` whose animation needs to be resumed.
+    func resumeLayer(_ layer: CALayer) {
         let pausedTime = layer.timeOffset
         layer.speed = 1.0
         layer.timeOffset = 0.0
-        layer.beginTime = 0.0
+        layer.beginTime = 0.0 // Reset beginTime
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        layer.beginTime = timeSincePause
+        layer.beginTime = timeSincePause // Adjust beginTime to account for the pause duration
     }
 }
+
+// Note: This class assumes that an extension exists for
+// `CLLocationCoordinate2D` that provides the `bearing(to:)` method.
+// For example:
+/*
+ extension CLLocationCoordinate2D {
+     func bearing(to destination: CLLocationCoordinate2D) -> Double {
+         let lat1 = self.latitude.toRadians()
+         let lon1 = self.longitude.toRadians()
+         let lat2 = destination.latitude.toRadians()
+         let lon2 = destination.longitude.toRadians()
+         
+         let deltaLon = lon2 - lon1
+         let y = sin(deltaLon) * cos(lat2)
+         let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(deltaLon)
+         let radiansBearing = atan2(y, x)
+         
+         var degreesBearing = radiansBearing.toDegrees()
+         if degreesBearing < 0 {
+             degreesBearing += 360.0
+         }
+         return degreesBearing
+     }
+ }
+ 
+ extension Double {
+     func toRadians() -> Double { self * .pi / 180.0 }
+     func toDegrees() -> Double { self * 180.0 / .pi }
+ }
+ */
 
