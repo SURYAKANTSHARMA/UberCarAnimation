@@ -29,3 +29,5 @@ Carthage
 .build
 Packages
 Package.pins
+# Custom keys
+keys.swift

@@ -56,8 +56,13 @@ UberCarAnimation is a delightful and interactive set of iOS projects demonstrati
 #### 1. UberCarAnimation (UIKit with Google Maps)
 
 *   **API Key Setup:**
-    1.  Create a file named `keys.swift` inside the `UberCarAnimation/UberCarAnimation/` directory (alongside `AppDelegate.swift`).
-    2.  Add your Google Maps API key to this file:
+    1.  Obtain a Google Maps API Key:
+        * Go to the [Google Cloud Console](https://console.cloud.google.com/).
+        * Create a new project or select an existing one.
+        * Navigate to "APIs & Services" > "Library" and enable the "Maps SDK for iOS".
+        * Go to "APIs & Services" > "Credentials" and create an API key.
+    2.  Create a file named `keys.swift` inside the `UberCarAnimation/UberCarAnimation/` directory (alongside `AppDelegate.swift`). Note: Do not commit your real key to version control. The `.gitignore` is set up to ignore `keys.swift`.
+    3.  Add your Google Maps API key to this file:
         ```swift
         // UberCarAnimation/UberCarAnimation/keys.swift
         import Foundation
@@ -65,15 +70,20 @@ UberCarAnimation is a delightful and interactive set of iOS projects demonstrati
         let googleMapsAPIKey = "YOUR_ACTUAL_GOOGLE_MAPS_API_KEY" 
         ```
         (Replace `"YOUR_ACTUAL_GOOGLE_MAPS_API_KEY"` with your real key.)
-    3.  The `AppDelegate.swift` is already refactored to use `googleMapsAPIKey` from this file.
+    4.  Add the `keys.swift` file to your Xcode target so it gets compiled. The `AppDelegate.swift` is already refactored to use `googleMapsAPIKey` from this file.
 *   **Running:** Open `UberCarAnimation.xcworkspace` in Xcode and run the `UberCarAnimation` scheme.
 *   **Location Simulation:** Once running in the simulator, select "Features" > "Location" > (e.g., "Freeway Drive") in the Simulator's menu bar to simulate movement.
 
 #### 2. SwiftUIExample/UberCarSwiftUI (SwiftUI with Google Maps)
 
 *   **API Key Setup:**
-    1.  Create a file named `keys.swift` inside the `SwiftUIExample/UberCarSwiftUI/UberCarSwiftUI/` directory (alongside `UberCarSwiftUIApp.swift`).
-    2.  Add your Google Maps API key to this file:
+    1.  Obtain a Google Maps API Key:
+        * Go to the [Google Cloud Console](https://console.cloud.google.com/).
+        * Create a new project or select an existing one.
+        * Navigate to "APIs & Services" > "Library" and enable the "Maps SDK for iOS".
+        * Go to "APIs & Services" > "Credentials" and create an API key.
+    2.  Create a file named `keys.swift` inside the `SwiftUIExample/UberCarSwiftUI/UberCarSwiftUI/` directory (alongside `UberCarSwiftUIApp.swift`). Note: Do not commit your real key to version control. The `.gitignore` is set up to ignore `keys.swift`.
+    3.  Add your Google Maps API key to this file:
         ```swift
         // SwiftUIExample/UberCarSwiftUI/UberCarSwiftUI/keys.swift
         import Foundation
@@ -81,7 +91,7 @@ UberCarAnimation is a delightful and interactive set of iOS projects demonstrati
         let googleMapsAPIKey = "YOUR_ACTUAL_GOOGLE_MAPS_API_KEY"
         ```
         (Replace `"YOUR_ACTUAL_GOOGLE_MAPS_API_KEY"` with your real key.)
-    3.  The `UberCarSwiftUIApp.swift` is already refactored to use `googleMapsAPIKey` from this file during its initialization.
+    4.  Add the `keys.swift` file to your Xcode target so it gets compiled. The `UberCarSwiftUIApp.swift` is already refactored to use `googleMapsAPIKey` from this file during its initialization.
 *   **Running:** Open `SwiftUIExample/UberCarSwiftUI/UberCarSwiftUI.xcworkspace` in Xcode and run the `UberCarSwiftUI` scheme.
 *   **Location Simulation:** Similar to the UIKit example, use the Simulator's location features.
 
