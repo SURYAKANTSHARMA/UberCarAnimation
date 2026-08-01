@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8517585E23425103006BE904 /* UberCarAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517585D23425103006BE904 /* UberCarAnimationTests.swift */; };
-		85F321A6233FC767007261C6 /* keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A5233FC767007261C6 /* keys.swift */; };
 		85F321A8233FC8C1007261C6 /* CarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321A7233FC8C1007261C6 /* CarAnimator.swift */; };
 		85F321AB233FD4EA007261C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F321AA233FD4EA007261C6 /* Extensions.swift */; };
 		87362C43A8EEF6595D0C7927 /* Pods_UberCarAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED099218D652DFB53E46437 /* Pods_UberCarAnimation.framework */; };
@@ -37,7 +36,6 @@
 		8517585B23425103006BE904 /* UberCarAnimationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberCarAnimationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8517585D23425103006BE904 /* UberCarAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCarAnimationTests.swift; sourceTree = "<group>"; };
 		8517585F23425103006BE904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85F321A5233FC767007261C6 /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
 		85F321A7233FC8C1007261C6 /* CarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnimator.swift; sourceTree = "<group>"; };
 		85F321AA233FD4EA007261C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9A32E78021A40A9C00D9D510 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				9A32E78021A40A9C00D9D510 /* LocationTracker.swift */,
 				9A3E6B2B21A2BF0700DC2839 /* AppDelegate.swift */,
 				9A3E6B2D21A2BF0700DC2839 /* ViewController.swift */,
-				85F321A5233FC767007261C6 /* keys.swift */,
 				85F321A9233FC8C8007261C6 /* Resources */,
 			);
 			path = UberCarAnimation;
@@ -305,7 +302,6 @@
 			files = (
 				9A3E6B2E21A2BF0700DC2839 /* ViewController.swift in Sources */,
 				85F321AB233FD4EA007261C6 /* Extensions.swift in Sources */,
-				85F321A6233FC767007261C6 /* keys.swift in Sources */,
 				9A32E78121A40A9C00D9D510 /* LocationTracker.swift in Sources */,
 				85F321A8233FC8C1007261C6 /* CarAnimator.swift in Sources */,
 				9A3E6B2C21A2BF0700DC2839 /* AppDelegate.swift in Sources */,
